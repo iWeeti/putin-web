@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['104.248.37.111', '127.0.0.1', 'localhost', 'putin.ml']
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
-#    'discord_bind.apps.DiscordBindConfig',
+    'discord_bind',
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',

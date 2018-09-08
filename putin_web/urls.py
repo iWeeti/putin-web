@@ -20,7 +20,6 @@ from users import views as user_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-#    path('index/', include('discord_bind_index')),
-#    path('callback/', include('discord_bind_callback')),
+    url(r'^discord/', include('discord_bind.urls')),
 	path('register/', user_views.register, name='register'),
 ]
