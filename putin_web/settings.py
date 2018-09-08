@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['104.248.37.111', '127.0.0.1', 'localhost']
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
 #    'discord_bind.apps.DiscordBindConfig',
+    'user.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
