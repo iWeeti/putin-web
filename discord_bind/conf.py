@@ -37,8 +37,8 @@ class DiscordBindConf(AppConf):
     TOKEN_PATH = '/oauth2/token'
 
     # OAuth2 application credentials
-    CLIENT_ID = None
-    CLIENT_SECRET = None
+    CLIENT_ID = 460846291300122635
+    CLIENT_SECRET = CHrf6ZD3BhcPXlf5kiXPekF_eCBUbCJn
 
     # OAuth2 scope
     EMAIL_SCOPE = False
