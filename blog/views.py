@@ -4,7 +4,8 @@ from django.views.generic import (
 	ListView,
 	DetailView,
 	CreateView,
-	UpdateView)
+	UpdateView,
+	DeleteView)
 from .models import Post, Announcement
 
 
@@ -76,6 +77,23 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(PostUpdateView, self).get_context_data(**kwargs)
+		ann = Announcement.objects.all()[::-1]
+		context.update({
+			'ann': ann[0:3],
+		})
+		return context
+
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+	model = Post
+	fields = ['title', 'content']
+
+	def test_func(self):
+		post = self.get_object()
+		return self.request.user == post.author
+
+	def get_context_data(self, **kwargs):
+		context = super(PostDeleteView, self).get_context_data(**kwargs)
 		ann = Announcement.objects.all()[::-1]
 		context.update({
 			'ann': ann[0:3],
