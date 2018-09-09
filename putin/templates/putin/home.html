@@ -2,4 +2,5 @@
 {% block content %}
 {{ user.discorduser.username }}#{{ user.discorduser.discriminator }}
 {{ user.discorduser.avatar }}
+<img class="rounded-circle article-img" src="https://cdn.discordapp.com/avatars/{{ user.discorduser.uid }}/{{ user.discorduser.avatar }}.png?size=1024">
 {% endblock content %}
