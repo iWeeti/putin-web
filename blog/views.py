@@ -23,7 +23,7 @@ def about(request):
 def announcements(request):
 	ann = Announcement.objects.all()[:3:-1]
 	context = {
-		'announcements': Announcement.objects.all(),
+		'announcements': Announcement.objects.all()[::-1],
 		'ann': ann
 	}
 	return render(request, 'blog/announcements.html', context)
