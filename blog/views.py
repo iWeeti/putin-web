@@ -23,7 +23,7 @@ class PostListView(ListView):
 		ann = Announcement.objects.all()[::-1]
 		context.update({
 			'posts': Post.objects.order_by('-date_posted'),
-			'ann': ann[0:2],
+			'ann': ann[0:3],
 		})
 		return context
 
