@@ -11,7 +11,7 @@
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.shortcontent }}...</p>
-            <a class="text-muted" href="{% url 'post-detail' post.id' %}">View full post.</a>
+            <a class="text-muted" href="{% url 'post-detail' post.id %}">View full post.</a>
           </div>
         </article>
     {% else %}
