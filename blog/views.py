@@ -22,7 +22,7 @@ class PostListView(ListView):
 		context = super(PostListView, self).get_context_data(**kwargs)
 		context.update({
 			'posts': Post.objects.order_by('-date_posted'),
-			'ann': Announcement.objects.all()[:-2:-1],
+			'ann': Announcement.objects.all()[3::-1],
 		})
 		return context
 
@@ -30,12 +30,12 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
 	model = Post
 
-	def get_context_data(self, **kwargs):
-		context = super(PostDetailView, self).get_context_data(**kwargs)
-		context.update({
-			'ann': Announcement.objects.all()[:3:-1],
-		})
-		return context
+	# def get_context_data(self, **kwargs):
+	# 	context = super(PostDetailView, self).get_context_data(**kwargs)
+	# 	context.update({
+	# 		'ann': Announcement.objects.all()[:3:-1],
+	# 	})
+	# 	return context
 
 
 def about(request):
