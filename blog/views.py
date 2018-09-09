@@ -7,7 +7,7 @@ def home(request):
 	ann = Announcement.objects.all()[:3:-1]
 	context = {
 		'posts': posts,
-		'_announcements': ann
+		'ann': ann
 	}
 	return render(request, 'blog/home.html', context)
 
@@ -16,7 +16,7 @@ def about(request):
 	ann = Announcement.objects.all()[:3:-1]
 	context = {
 		'title': 'About',
-		'_announcements': ann
+		'ann': ann
 	}
 	return render(request, 'blog/about.html', context)
 
@@ -24,6 +24,6 @@ def announcements(request):
 	ann = Announcement.objects.all()[:3:-1]
 	context = {
 		'announcements': Announcement.objects.all(),
-		'_announcements': ann
+		'ann': ann
 	}
 	return render(request, 'blog/announcements.html', context)
