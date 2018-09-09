@@ -55,10 +55,11 @@
         </div>
         <div class="col-md-4">
           <div class="content-section">
-            <h3>Important Stuff</h3>
+            <h3>Announcements</h3>
             <p class='text-muted'>
               <ul class="list-group">
-                
+                {% for announcement in _announcements %}
+                <li>{{ announcement }}</li>
               </ul>
             </p>
           </div>

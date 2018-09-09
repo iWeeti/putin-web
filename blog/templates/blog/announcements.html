@@ -1,4 +1,15 @@
 {% extends "blog/base.html" %}
 {% block content %}
 	<h1>Announcements</h1>
+	{% for announcement in announcements %}
+	<article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ announcement.author }}</a>
+              <small class="text-muted">{{ announcement.date }}</small>
+            </div>
+            <p class="article-content">{{ announcement }}</p>
+          </div>
+        </article>
+    {% endfor %}
 {% endblock content %}
