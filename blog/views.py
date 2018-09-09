@@ -1,15 +1,30 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 from .models import Post, Announcement
 
 
 def home(request):
-	posts = Post.objects.all()[::-1]
 	ann = Announcement.objects.all()[:3:-1]
 	context = {
-		'posts': posts,
+		'posts': Post.objects.all()[::-1],
 		'ann': ann
 	}
 	return render(request, 'blog/home.html', context)
+
+
+class PostListView(ListView):
+	model = Post
+	template_name = 'blog/home.html'
+	context_object_name = 'posts'
+	ordering = ['-date_posted']
+
+	def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+        context.update({
+            'posts': Posts.objects.order_by('-date_posted'),
+            'ann': Announcement.objects.all()[:3:-1],
+        })
+        return context
 
 
 def about(request):
