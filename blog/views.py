@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+	ListView,
+	DetailView,
+	CreateView)
 from .models import Post, Announcement
 
 
@@ -39,6 +42,18 @@ class PostDetailView(DetailView):
 		})
 		return context
 
+
+class PostCreateView(CreateView):
+	model = Post
+	fields = ['title', 'content']
+
+	def get_context_data(self, **kwargs):
+		context = super(PostDetailView, self).get_context_data(**kwargs)
+		ann = Announcement.objects.all()[::-1]
+		context.update({
+			'ann': ann[0:3],
+		})
+		return context
 
 
 def about(request):
