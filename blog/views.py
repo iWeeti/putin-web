@@ -31,12 +31,14 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
 	model = Post
 
-	# def get_context_data(self, **kwargs):
-	# 	context = super(PostDetailView, self).get_context_data(**kwargs)
-	# 	context.update({
-	# 		'ann': Announcement.objects.all()[:3:-1],
-	# 	})
-	# 	return context
+	def get_context_data(self, **kwargs):
+		context = super(PostDetailView, self).get_context_data(**kwargs)
+		ann = Announcement.objects.all()[::-1]
+		context.update({
+			'ann': ann[0:3],
+		})
+		return context
+
 
 
 def about(request):
