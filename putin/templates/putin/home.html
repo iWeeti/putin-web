@@ -1,1 +1,5 @@
-{{ user.discorduser.username }}{{ user.discorduser.discriminator }}
+{% extends "blog/base.html" %}
+{% block content %}
+{{ user.discorduser.username }}#{{ user.discorduser.discriminator }}
+{{ user.discorduser.avatar }}
+{% endblock content %}
