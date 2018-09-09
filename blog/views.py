@@ -71,7 +71,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 		return super().form_valid(form)
 
 	def get_context_data(self, **kwargs):
-		context = super(PostCreateView, self).get_context_data(**kwargs)
+		context = super(PostUpdateView, self).get_context_data(**kwargs)
 		ann = Announcement.objects.all()[::-1]
 		context.update({
 			'ann': ann[0:3],
