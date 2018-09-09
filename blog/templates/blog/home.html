@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
 	{% for post in posts %}
-    {% if post.content[300] %}
+    {% if long %}
 		<article class="media content-section">
       <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
           <div class="media-body">
@@ -10,7 +10,7 @@
               <small class="text-muted">{{ post.date_posted|date:"F d Y" }}</small>
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content[300] }}...</p>
+            <p class="article-content">{{ post.shortcontent }}...</p>
             <a class="text-muted" href="{% url 'blog/post' post.id' %}">View full post.</a>
           </div>
         </article>
