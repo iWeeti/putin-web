@@ -18,7 +18,7 @@ class Post(models.Model):
 
 	@property
 	def long(self):
-		return self.content > 300
+		return len(self.content) > 300
 
 	@property
 	def shortcontent(self):
