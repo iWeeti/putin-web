@@ -47,7 +47,7 @@ class DiscordBindConf(AppConf):
     CONNECTIONS_SCOPE = False
 
     # URI settings
-    REDIRECT_URI = None
+    REDIRECT_URI = 'http://putin.ml:8000/discord/cb'
     INVITE_URI = 'https://discordapp.com/channels/@me'
     RETURN_URI = '/'
     ERROR_URI = '/'

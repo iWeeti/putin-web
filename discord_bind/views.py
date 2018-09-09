@@ -55,9 +55,8 @@ def oauth_session(request, state=None, token=None):
     if settings.DISCORD_REDIRECT_URI is not None:
         redirect_uri = settings.DISCORD_REDIRECT_URI
     else:
-        # redirect_uri = request.build_absolute_uri(
-        #     reverse('discord_bind_callback'))
-        redirect_uri = 'http://putin.ml:8000/discord/cb'
+        redirect_uri = request.build_absolute_uri(
+            reverse('discord_bind_callback'))
     scope = (['identify', 'email'] if settings.DISCORD_EMAIL_SCOPE
              else ['identify'])
     if settings.DISCORD_GUILDS_SCOPE:
