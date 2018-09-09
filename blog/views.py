@@ -15,7 +15,7 @@ def home(request):
 def about(request):
 	ann = Announcement.objects.all()[:3:-1]
 	context = {
-		'title': 'About'
+		'title': 'About',
 		'_announcements': ann
 	}
 	return render(request, 'blog/about.html', context)
