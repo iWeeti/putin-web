@@ -47,6 +47,10 @@ class PostCreateView(CreateView):
 	model = Post
 	fields = ['title', 'content']
 
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
+
 	def get_context_data(self, **kwargs):
 		context = super(PostCreateView, self).get_context_data(**kwargs)
 		ann = Announcement.objects.all()[::-1]
