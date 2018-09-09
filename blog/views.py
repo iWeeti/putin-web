@@ -3,7 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
 	ListView,
 	DetailView,
-	CreateView)
+	CreateView,
+	UpdateView)
 from .models import Post, Announcement
 
 
@@ -45,6 +46,23 @@ class PostDetailView(DetailView):
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
+	model = Post
+	fields = ['title', 'content']
+
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
+
+	def get_context_data(self, **kwargs):
+		context = super(PostCreateView, self).get_context_data(**kwargs)
+		ann = Announcement.objects.all()[::-1]
+		context.update({
+			'ann': ann[0:3],
+		})
+		return context
+
+
+class PostCreateView(LoginRequiredMixin, UpdateView):
 	model = Post
 	fields = ['title', 'content']
 
