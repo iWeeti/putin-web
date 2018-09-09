@@ -14,3 +14,6 @@ def about(request):
 		'title': 'About'
 	}
 	return render(request, 'blog/about.html', context)
+
+def announcements(request):
+	return render(request, 'blog/announcements.html')
