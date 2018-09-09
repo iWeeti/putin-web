@@ -43,13 +43,13 @@ class DiscordBindConf(AppConf):
     # OAuth2 scope
     EMAIL_SCOPE = False
     GUILDS_SCOPE = True
-    INVITE_SCOPE = True
+    INVITE_SCOPE = False
     CONNECTIONS_SCOPE = False
 
     # URI settings
     REDIRECT_URI = None
     INVITE_URI = 'https://discordapp.com/channels/@me'
-    RETURN_URI = '/register/'
+    RETURN_URI = '/'
     ERROR_URI = '/'
 
     class Meta:
