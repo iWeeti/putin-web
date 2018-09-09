@@ -20,10 +20,10 @@ class PostListView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(PostListView, self).get_context_data(**kwargs)
-		ann = Announcement.objects.all()[-1:-3:-1]
+		ann = Announcement.objects.all()[::-1]
 		context.update({
 			'posts': Post.objects.order_by('-date_posted'),
-			'ann': ann,
+			'ann': ann[0:2],
 		})
 		return context
 
