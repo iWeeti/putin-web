@@ -16,6 +16,16 @@ class Post(models.Model):
 	def get_absolute_url(self):
 		return reverse('post-detail', kwargs={'pk': self.pk})
 
+	@property
+	def long(self):
+		return self.content > 300
+
+	@property
+	def shortcontent(self):
+		return self.content[0:300]
+	
+	
+
 class Announcement(models.Model):
 	announcement = models.TextField()
 	date = models.DateTimeField(default=timezone.now)
