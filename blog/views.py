@@ -50,7 +50,7 @@ def about(request):
 def announcements(request):
 	ann = Announcement.objects.all()[::-1]
 	context = {
-		'title': 'Announcements'
+		'title': 'Announcements',
 		'announcements': Announcement.objects.all()[::-1],
 		'ann': ann[0:3]
 	}
