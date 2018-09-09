@@ -62,7 +62,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 		return context
 
 
-class PostCreateView(LoginRequiredMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UpdateView):
 	model = Post
 	fields = ['title', 'content']
 
