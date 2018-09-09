@@ -78,6 +78,10 @@ WSGI_APPLICATION = 'putin_web.wsgi.application'
 
 DATABASES = {
     'default': {
+        'NAME': 'test.db',
+        'ENGINE': 'django.db.backends.sqlite3',
+    },
+    'postgres': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'putin',
         'USER': 'putin',
