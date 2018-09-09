@@ -123,6 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -135,4 +136,17 @@ LOGIN_URL = "/discord/"
 DISCORD_CLIENT_ID = 460846291300122635
 DISCORD_CLIENT_SECRET = 'CHrf6ZD3BhcPXlf5kiXPekF_eCBUbCJn'
 
+DISCORD_REDIRECT_URI = None
+DISCORD_INVITE_URI = 'https://discordapp.com/channels/@me'
+DISCORD_RETURN_URI = '/'
+DISCORD_ERROR_URI = '/'
+
 DISCORD_EMAIL_SCOPE = False
+DISCORD_GUILDS_SCOPE = True
+DISCORD_INVITE_SCOPE = False
+DISCORD_CONNECTIONS_SCOPE = False
+
+DISCORD_EMAIL_SCOPE = False
+DISCORD_BASE_URI = 'https://discordapp.com/api'
+DISCORD_AUTHZ_PATH = '/oauth2/authorize'
+DISCORD_TOKEN_PATH = '/oauth2/token'
