@@ -48,7 +48,7 @@ class PostCreateView(CreateView):
 	fields = ['title', 'content']
 
 	def get_context_data(self, **kwargs):
-		context = super(PostDetailView, self).get_context_data(**kwargs)
+		context = super(PostCreateView, self).get_context_data(**kwargs)
 		ann = Announcement.objects.all()[::-1]
 		context.update({
 			'ann': ann[0:3],
