@@ -1,10 +1,10 @@
 {% extends "blog/base.html" %}
 {% block content %}
 		<article class="media content-section">
-      <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+      <img class="rounded-circle article-img" src="https://cdn.discordapp.com/avatars/{{ post.author.discorduser.uid }}/{{ post.author.discorduser.avatar }}.png?size=1024">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ object.author }}</a>
+              <a class="mr-2" href="#">{{ object.author.discorduser.username }}#{{ object.author.discorduser.discriminator }}</a>
               <small class="text-muted">{{ object.date_posted|date:"F d Y" }}</small>
               {% if object.author == user %}
               <div>
