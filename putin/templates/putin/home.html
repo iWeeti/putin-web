@@ -1,9 +1,11 @@
 {% extends "blog/base.html" %}
 {% block content %}
+{% if user.discorduser.username %}
 <article class="media content-section">
 	<img class="rounded-circle article-img" src="https://cdn.discordapp.com/avatars/{{ user.discorduser.uid }}/{{ user.discorduser.avatar }}.png?size=1024">
 	<div class="media-body">
 		<h2 class="article-title">Logged in as {{ user.discorduser.username }}#{{ user.discorduser.discriminator }}</h2>
 	</div>
 </article>
+{% endif %}
 {% endblock content %}
