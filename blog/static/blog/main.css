@@ -1,4 +1,6 @@
 body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 18px;
   background: #fafafa;
   color: #333333;
   margin-top: 5rem;
@@ -12,12 +14,8 @@ ul {
   margin: 0;
 }
 
-.bg-steel {
-  background-color: #5f788a;
-}
-
 .site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+  color: #bfd7ff;
 }
 
 .site-header .navbar-nav .nav-link:hover {
