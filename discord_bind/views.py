@@ -217,5 +217,5 @@ def callback(request):
     del request.session['discord_bind_invite_uri']
     del request.session['discord_bind_return_uri']
     del request.session['discord_bind_next_uri']
-
+    messages.success('Successfully logged in.')
     return HttpResponseRedirect(url)
