@@ -33,7 +33,7 @@
           <div class="navbar-nav">
             {% if user.is_authenticated %}
             <a class="nav-item nav-link" href="#">{{ user.discorduser.username }}#{{ user.discorduser.discriminator }}</a>
-            <a class="nav-item nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-in-alt" style="font-size:28px;color:white;"></i></a>
+            <a class="nav-item nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out-alt" style="font-size:28px;color:white;"></i></a>
             {% else %}
             <a class="nav-item nav-link" href="{% url 'discord_bind_index' %}"><i class="fas fa-sign-in-alt"></i></a>
             {% endif %}
