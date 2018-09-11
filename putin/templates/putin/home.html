@@ -7,5 +7,9 @@
 		<h2 class="article-title">Welcome {{ user.discorduser.username }}#{{ user.discorduser.discriminator }}</h2>
 	</div>
 </article>
+{% else %}
+<div class="alert alert-{{ message.tags }}">
+    You are not signed in.
+</div>
 {% endif %}
 {% endblock content %}
