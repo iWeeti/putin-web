@@ -1,12 +1,9 @@
 {% extends "blog/base.html" %}
 {% block content %}
 {% if user.is_authenticated %}
-<article class="media content-section">
-	<img class="rounded-circle article-img" src="https://cdn.discordapp.com/avatars/{{ user.discorduser.uid }}/{{ user.discorduser.avatar }}.png?size=1024">
-	<div class="media-body">
-		<h2 class="article-title">Welcome {{ user.discorduser.username }}#{{ user.discorduser.discriminator }}</h2>
-	</div>
-</article>
+<div class="alert alert-info">
+    Welcome {{ user.discorduser.username }}#{{ user.discorduser.discriminator}}!
+</div>
 {% else %}
 <div class="alert alert-info">
     You are not signed in.
