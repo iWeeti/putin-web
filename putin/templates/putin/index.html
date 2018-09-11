@@ -1,19 +1,31 @@
-{% load static %}
+
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0000FF">    
+    <meta name="msapplication-TileColor" content="#FF0000">
+    <meta name="msapplication-config" content="static/images/icons/browserconfig.xml">
 
-	{% if title %}
-		<title>W.Bot - {{ title }}</title>
-	{% else %}
-		<title>W.Bot</title>
-	{% endif %}	
+    <meta property="og:title" content="Putin's Blog">
+    <meta property="og:image" content="https://specials-images.forbesimg.com/imageserve/5aecc9a84bbe6f748688434d/416x416.jpg?background=000000&cropX1=271&cropX2=1742&cropY1=321&cropY2=1791">
+    <meta property="og:site_name" content="Putin Discord Bot">
+    <meta property="og:description" content="Putin - a multipurpose discord bot with 200+ commands">
+    <link rel="icon" href="https://cdn.countryflags.com/thumbs/russia/flag-button-square-250.png">
+
+	
+		<title>Putin's Blog</title>
+		
 </head>
 <body>
 	<header class="site-header">
@@ -43,29 +55,19 @@
 	<main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-          {% block content %}{% endblock %}
+          
+          
+
+
         </div>
         <div class="col-md-4">
           <div class="content-section">
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#announcements" aria-expanded="false" aria-controls="announcements">
-              Announcements
-            </button>
-            <div class="collapse" id="announcements">
-              <p class='text-muted'>
+            <h3>Announcements</h3>
+            <p class="text-muted">
               <ul class="list-group">
-                {% for announcement in ann %}
-                <li class="list-group-item list-group-item-light">{{ announcement }}</li>
-                {% endfor %}
+                
               </ul>
             </p>
-            </div>
           </div>
         </div>
       </div>
