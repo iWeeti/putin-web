@@ -13,7 +13,8 @@ def home(request):
 	ann = Announcement.objects.all()[:3:-1]
 	context = {
 		'posts': Post.objects.all()[::-1],
-		'ann': ann
+		'ann': ann,
+		'title': 'Blog'
 	}
 	return render(request, 'blog/home.html', context)
 
