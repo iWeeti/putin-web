@@ -17,10 +17,6 @@ html {
   background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
 }
 
-.dropdown-menu-right{
-    left: -85px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   color: #a7c9d1;
 }
