@@ -1,27 +1,25 @@
 body {
-  background: #fafafa;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 18px;
+  background: #363d47;
   color: #333333;
   margin-top: 5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #1f4f93;
 }
 
 ul {
   margin: 0;
 }
 
-.bg-steel {
-  background-color: #5f788a;
-}
-
 .site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+  color: #13a588;
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
+  color: #a6bcdb;
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -29,7 +27,7 @@ ul {
 }
 
 .content-section {
-  background: #ffffff;
+  background: #545e6d;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -37,7 +35,7 @@ ul {
 }
 
 .article-title {
-  color: #444444;
+  color: #1d519b;
 }
 
 a.article-title:hover {
