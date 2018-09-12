@@ -15,11 +15,11 @@ ul {
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #13a588;
+  color: #a4a5a5;
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #a6bcdb;
+  color: #cecece;
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -35,11 +35,11 @@ ul {
 }
 
 .article-title {
-  color: #1d519b;
+  color: #a5d2ff;
 }
 
 a.article-title:hover {
-  color: #428bca;
+  color: #c6e2ff;
   text-decoration: none;
 }
 
