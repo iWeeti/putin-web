@@ -74,6 +74,14 @@ WSGI_APPLICATION = 'putin_web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'putin',
+        'USER': 'putin',
+        'PASSWORD': 'putin',
+        'HOST': 'localhost',
+        'PORT': '',
+    },
+    'bot': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
@@ -81,6 +89,8 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+DATABASE_ROUTERS = ['blog.models.Post', 'blog.models.Announcement', 'putin.models.Profiles', 'putin.models.Settings']
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
