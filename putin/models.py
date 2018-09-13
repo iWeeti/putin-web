@@ -130,6 +130,8 @@ class Profiles(models.Model):
     married = models.BigIntegerField(blank=True, null=True)
     pet = models.TextField(blank=True, null=True)
     banner = models.IntegerField(blank=True, null=True)
+    name = models.TextField(blank=True, null=True)
+    pfp = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
