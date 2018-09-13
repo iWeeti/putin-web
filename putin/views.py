@@ -9,6 +9,7 @@ def index(request):
 		profile = Profiles.objects.using('bot').get(pk=request.user.discorduser.id)
 		test = request.user.discorduser.id
 	else:
+		test = None
 		profile = None
 	context = {
 		'ann': '1',
