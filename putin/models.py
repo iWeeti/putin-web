@@ -117,7 +117,7 @@ class Plonks(models.Model):
 
 
 class Profiles(models.Model):
-    id = models.BigIntegerField(blank=True, null=True)
+    id = models.BigIntegerField(blank=True, null=True, primary_key=True)
     description = models.TextField(blank=True, null=True)
     bday = models.TextField(blank=True, null=True)
     picks = models.DecimalField(max_digits=1000, decimal_places=0, blank=True, null=True)
@@ -175,7 +175,7 @@ class Rtfm(models.Model):
 
 
 class Settings(models.Model):
-    id = models.BigIntegerField(blank=True, null=True)
+    id = models.BigIntegerField(blank=True, null=True, primary_key=True)
     message_delete = models.BooleanField(blank=True, null=True)
     message_edit = models.BooleanField(blank=True, null=True)
     kick = models.BooleanField(blank=True, null=True)
