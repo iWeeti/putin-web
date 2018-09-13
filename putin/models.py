@@ -19,6 +19,17 @@ class EmojiStats(models.Model):
         unique_together = (('guild_id', 'emoji_id'),)
 
 
+# class Feeds(models.Model):
+#     id = models.AutoField()
+#     channel_id = models.BigIntegerField(blank=True, null=True)
+#     role_id = models.BigIntegerField(blank=True, null=True)
+#     name = models.TextField(blank=True, null=True)
+
+#     class Meta:
+#         managed = False
+#         db_table = 'feeds'
+
+
 class GuildModConfig(models.Model):
     id = models.BigIntegerField(primary_key=True)
     raid_mode = models.SmallIntegerField(blank=True, null=True)
@@ -163,17 +174,17 @@ class Starrers(models.Model):
         unique_together = (('author_id', 'entry'),)
 
 
-class Store(models.Model):
-    id = models.BigIntegerField(blank=True, null=True)
-    price = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
-    seller_id = models.BigIntegerField(blank=True, null=True)
-    selling_id = models.AutoField()
-    quantity = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
-    item_id = models.IntegerField(blank=True, null=True)
+# class Store(models.Model):
+#     id = models.BigIntegerField(blank=True, null=True)
+#     price = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+#     seller_id = models.BigIntegerField(blank=True, null=True)
+#     selling_id = models.AutoField()
+#     quantity = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+#     item_id = models.IntegerField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'store'
+#     class Meta:
+#         managed = False
+#         db_table = 'store'
 
 
 class TagLookup(models.Model):
