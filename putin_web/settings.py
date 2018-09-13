@@ -90,7 +90,7 @@ DATABASES = {
     }
 }
 
-DATABASE_ROUTERS = ['blog.models.Post', 'blog.models.Post', 'putin.models.Profiles']
+DATABASE_ROUTERS = ['blog.models', 'putin.models']
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
