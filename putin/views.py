@@ -6,7 +6,7 @@ import psycopg2
 def index(request):
 	ann = Announcement.objects.all()[::-1]
 	if request.user.is_authenticated:
-		profile = Profiles.objects.using('bot').get(pk=request.user.discorduser.uid)
+		profile = Profiles.objects.using('bot').get(pk=request.user)
 	else:
 		profile = None
 	context = {
