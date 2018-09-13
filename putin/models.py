@@ -18,10 +18,10 @@ class EmojiStats(models.Model):
         db_table = 'emoji_stats'
         unique_together = (('guild_id', 'emoji_id'),)
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, EmojiStats, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, EmojiStats, **hints):
         return 'bot'
 
 
@@ -47,10 +47,10 @@ class GuildModConfig(models.Model):
         managed = False
         db_table = 'guild_mod_config'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, GuildModConfig, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, GuildModConfig, **hints):
         return 'bot'
 
 
@@ -63,10 +63,10 @@ class IndexAnnouncement(models.Model):
         managed = False
         db_table = 'index_announcement'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, IndexAnnouncement, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, IndexAnnouncement, **hints):
         return 'bot'
 
 
@@ -79,10 +79,10 @@ class IndexChoice(models.Model):
         managed = False
         db_table = 'index_choice'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, IndexChoice, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, IndexChoice, **hints):
         return 'bot'
 
 
@@ -94,10 +94,10 @@ class IndexQuestion(models.Model):
         managed = False
         db_table = 'index_question'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, IndexQuestion, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, IndexQuestion, **hints):
         return 'bot'
 
 
@@ -109,10 +109,10 @@ class Plonks(models.Model):
         managed = False
         db_table = 'plonks'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, Plonks, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, Plonks, **hints):
         return 'bot'
 
 
@@ -135,10 +135,10 @@ class Profiles(models.Model):
         managed = False
         db_table = 'profiles'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, Profiles, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, Profiles, **hints):
         return 'bot'
 
 
@@ -152,10 +152,10 @@ class Reminders(models.Model):
         managed = False
         db_table = 'reminders'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, Reminders, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, Reminders, **hints):
         return 'bot'
 
 
@@ -167,10 +167,10 @@ class Rtfm(models.Model):
         managed = False
         db_table = 'rtfm'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, Rtfm, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, Rtfm, **hints):
         return 'bot'
 
 
@@ -193,10 +193,10 @@ class Settings(models.Model):
         managed = False
         db_table = 'settings'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, Settings, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, Settings, **hints):
         return 'bot'
 
 
@@ -211,10 +211,10 @@ class Starboard(models.Model):
         managed = False
         db_table = 'starboard'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, Starboard, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, Starboard, **hints):
         return 'bot'
 
 
@@ -229,10 +229,10 @@ class StarboardEntries(models.Model):
         managed = False
         db_table = 'starboard_entries'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, StarboardEntries, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, StarboardEntries, **hints):
         return 'bot'
 
 
@@ -245,10 +245,10 @@ class Starrers(models.Model):
         db_table = 'starrers'
         unique_together = (('author_id', 'entry'),)
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, Starrers, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, Starrers, **hints):
         return 'bot'
 
 
@@ -277,10 +277,10 @@ class TagLookup(models.Model):
         managed = False
         db_table = 'tag_lookup'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, TagLookup, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, TagLookup, **hints):
         return 'bot'
 
 
@@ -297,8 +297,8 @@ class Tags(models.Model):
         managed = False
         db_table = 'tags'
 
-    def db_for_write(self, model, **hints):
+    def db_for_write(self, Tags, **hints):
         return 'bot'
 
-    def db_for_read(self, model, **hints):
+    def db_for_read(self, Tags, **hints):
         return 'bot'
