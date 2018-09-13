@@ -19,11 +19,6 @@ def profile(request):
 	except:
 		uid = None
 	if not uid is None:
-		context = {
-		'ann': ann,
-		'profile': profile,
-		}
-		return render(request, 'putin/profile.html', context) 
 		try:
 			profile = Profiles.objects.using('bot').get(id=uid)
 		except:
