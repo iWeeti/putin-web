@@ -19,17 +19,6 @@ class EmojiStats(models.Model):
         unique_together = (('guild_id', 'emoji_id'),)
 
 
-class Feeds(models.Model):
-    id = models.AutoField()
-    channel_id = models.BigIntegerField(blank=True, null=True)
-    role_id = models.BigIntegerField(blank=True, null=True)
-    name = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'feeds'
-
-
 class GuildModConfig(models.Model):
     id = models.BigIntegerField(primary_key=True)
     raid_mode = models.SmallIntegerField(blank=True, null=True)
