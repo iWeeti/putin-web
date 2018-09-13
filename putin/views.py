@@ -5,9 +5,12 @@ import psycopg2
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
-	settings = Settings.objects.using('bot').all()[0]
+	if request.user.is_authenticated:
+		profile = Profiles.objects.using('bot').get(pk=request.user.discorduser.uid)[0]
+	else:
+		profile = None
 	context = {
 		'ann': '1',
-		'settings': '123',
+		'profile': profile,
 	}
 	return render(request, 'putin/home.html', context)
