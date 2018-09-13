@@ -5,7 +5,7 @@ import psycopg2
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
-	settings = Settings.objects.all()[0]
+	settings = Settings.objects.using('bot').all()[0]
 	context = {
 		'ann': ann[0:5],
 		'settings': settings
