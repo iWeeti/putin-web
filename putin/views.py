@@ -7,13 +7,10 @@ def index(request):
 	ann = Announcement.objects.all()[::-1]
 	if request.user.is_authenticated:
 		profile = Profiles.objects.using('bot').get(pk=request.user.discorduser.uid)
-		test = request.user.discorduser.id
 	else:
-		test = None
 		profile = None
 	context = {
 		'ann': '1',
 		'profile': profile,
-		'test': test
 	}
 	return render(request, 'putin/home.html', context)
