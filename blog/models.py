@@ -23,7 +23,12 @@ class Post(models.Model):
 	@property
 	def shortcontent(self):
 		return self.content[0:300]
-	
+
+	def db_for_write(self, model, **hints):
+        return 'default'
+
+    def db_for_read(self, model, **hints):
+        return 'default'
 	
 
 class Announcement(models.Model):
@@ -33,3 +38,9 @@ class Announcement(models.Model):
 
 	def __str__(self):
 		return self.announcement
+
+	def db_for_write(self, model, **hints):
+        return 'default'
+
+    def db_for_read(self, model, **hints):
+        return 'default'
