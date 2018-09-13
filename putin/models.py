@@ -135,10 +135,10 @@ class Profiles(models.Model):
         managed = False
         db_table = 'profiles'
 
-    def db_for_write(self, Profiles, **hints):
+    def db_for_write(self, model, **hints):
         return 'bot'
 
-    def db_for_read(self, Profiles, **hints):
+    def db_for_read(self, model, **hints):
         return 'bot'
 
 
