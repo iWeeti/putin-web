@@ -22,7 +22,13 @@ def profile(request):
 		try:
 			profile = Profiles.objects.using('bot').get(id=uid)
 		except:
-			profile = None
+			if request.user.is_authenticated:
+				try:
+					profile = Profiles.objects.using('bot').get(id=request.user.discorduser.uid)
+				except:
+					profile = None
+				else:
+					profile = None
 	else:
 		if request.user.is_authenticated:
 			try:
