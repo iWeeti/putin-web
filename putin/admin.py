@@ -3,4 +3,4 @@ from .models import (
 	Settings
 	)
 
-admin.ste.register(Settings)
+admin.site.register(Settings)
