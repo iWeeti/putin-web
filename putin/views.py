@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from blog.models import Announcement
+from django.contrib.auth.decorators import login_required
 from .models import Settings, Profiles
 import psycopg2
 
@@ -10,6 +11,7 @@ def index(request):
 	}
 	return render(request, 'putin/home.html', context)
 
+@login_required
 def profile(request):
 	ann = Announcement.objects.all()[::-1]
 	if request.user.is_authenticated:
