@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from blog.models import Announcement, Profiles
+from blog.models import Announcement
+from .models import Profiles
 import psycopg2
 
 def index(request):
