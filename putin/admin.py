@@ -5,6 +5,10 @@ from .models import (
 	Starboard
 	)
 
-admin.site.register(Settings)
-admin.site.register(Profiles)
-admin.site.register(Starboard)
+@admin.register(Profiles)
+class ProfilesAdmin(admin.ModelAdmin):
+	list_display = (
+		'id',
+		'description'
+		)
+	list_display_links = ('id',)
