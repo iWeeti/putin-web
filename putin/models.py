@@ -167,10 +167,10 @@ class Rtfm(models.Model):
         managed = False
         db_table = 'rtfm'
 
-    def db_for_write(self, Rtfm, **hints):
+    def db_for_write(self, model, **hints):
         return 'bot'
 
-    def db_for_read(self, Rtfm, **hints):
+    def db_for_read(self, model, **hints):
         return 'bot'
 
 
@@ -193,10 +193,10 @@ class Settings(models.Model):
         managed = False
         db_table = 'settings'
 
-    def db_for_write(self, Settings, **hints):
+    def db_for_write(self, model, **hints):
         return 'bot'
 
-    def db_for_read(self, Settings, **hints):
+    def db_for_read(self, model, **hints):
         return 'bot'
 
 
