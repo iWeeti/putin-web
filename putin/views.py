@@ -10,7 +10,7 @@ def index(request):
 	else:
 		profile = None
 	context = {
-		'ann': '1',
+		'ann': ann,
 		'profile': profile,
 	}
 	return render(request, 'putin/home.html', context)
