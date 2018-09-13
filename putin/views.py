@@ -17,7 +17,7 @@ def profile(request):
 	try:
 		uid = request.GET['uid']
 	except:
-		pass
+		uid = None
 	if not uid is None:
 		context = {
 		'ann': ann,
