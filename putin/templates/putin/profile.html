@@ -1,12 +1,20 @@
 {% extends "putin/base.html" %}
 {% block content %}
-<p>Description: {{ profile.description }}</p>
-<p>Birthday: {{ profile.bday }}</p>
-<p>Cash: {{ profile.cash }}</p>
-<p>Picks: {{ profile.picks }}</p>
-<p>Rings: {{ profile.rings }}</p>
-<p>Diamonds: {{ profile.diamonds }}</p>
-<p>Roses: {{ profile.roses }}</p>
-<p>Alcohol: {{ profile.alcohol }}</p>
-<p>Experience: {{ profile.experience }}</p>
+<div class="media content-section">
+	<img class="rounded-circle article-img" src="https://cdn.discordapp.com/avatars/{{ post.author.discorduser.uid }}/{{ post.author.discorduser.avatar }}.png?size=1024">
+	<div class="media-body">
+	    <div class="article-metadata">
+	      <a class="mr-2" href="#">{{ post.author.discorduser.username }}#{{ post.author.discorduser.discriminator }}</a>
+	    </div>
+    <p>Description: {{ profile.description }}</p>
+	<p>Birthday: {{ profile.bday }}</p>
+	<p>Cash: {{ profile.cash }}</p>
+	<p>Picks: {{ profile.picks }}</p>
+	<p>Rings: {{ profile.rings }}</p>
+	<p>Diamonds: {{ profile.diamonds }}</p>
+	<p>Roses: {{ profile.roses }}</p>
+	<p>Alcohol: {{ profile.alcohol }}</p>
+	<p>Experience: {{ profile.experience }}</p>
+    </div>
+</div>
 {% endblock content %}
