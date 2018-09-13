@@ -4,3 +4,4 @@
 /discord_bind/__pycache__*
 */__pycache__/*
 /media/*
+webenv/*
