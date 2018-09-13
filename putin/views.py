@@ -11,7 +11,7 @@ def index(request):
 	}
 	return render(request, 'putin/home.html', context)
 
-@login_required
+# @login_required
 def profile(request):
 	ann = Announcement.objects.all()[::-1]
 	try:
