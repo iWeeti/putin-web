@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from blog.models import Announcement, Feeds
+from blog.models import Announcement, Profiles
 import psycopg2
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
-	feeds = Feeds.objects.all()
+	feeds = Profiles.objects.all()[0]
 	context = {
 		'ann': ann[0:5],
-		'feeds': feeds
+		'feeds': feeds.description
 	}
 	return render(request, 'putin/home.html', context)
