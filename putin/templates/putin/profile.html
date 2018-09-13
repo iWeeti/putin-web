@@ -1,10 +1,10 @@
 {% extends "putin/base.html" %}
 {% block content %}
 <div class="media content-section">
-	<img class="rounded-circle article-img" src="https://cdn.discordapp.com/avatars/{{ user.discorduser.uid }}/{{ user.discorduser.avatar }}.png?size=1024">
+	<img class="rounded-circle article-img" src="{{ profile.pfp }}">
 	<div class="media-body">
 	    <div class="article-metadata">
-	      <a class="mr-2" href="#">{{ user.discorduser.username }}#{{ user.discorduser.discriminator }}</a>
+	      <a class="mr-2" href="#">{{ profile.name }}</a>
 	    </div>
     <p>Description: {{ profile.description }}</p>
 	<p>Birthday: {{ profile.bday }}</p>
