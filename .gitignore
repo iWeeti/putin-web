@@ -6,3 +6,8 @@
 /media/*
 webenv/*
 static/*
+putin/static/putin/node_modules/*
+blog/static/blog/node_modules/*
+users/static/users/node_modules/*
+letsencrypt/*
+certbot-auto
