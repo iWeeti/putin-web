@@ -14,13 +14,19 @@ def index(request):
 @login_required
 def profile(request):
 	ann = Announcement.objects.all()[::-1]
-	if request.user.is_authenticated:
+	if request.uid:
 		try:
-			profile = Profiles.objects.using('bot').get(id=request.user.discorduser.uid)
+			profile = Profiles.objects.using('bot').get(id=request.uid)
 		except:
 			profile = None
 	else:
-		profile = None
+		if request.user.is_authenticated:
+			try:
+				profile = Profiles.objects.using('bot').get(id=request.user.discorduser.uid)
+			except:
+				profile = None
+		else:
+			profile = None
 	context = {
 		'ann': ann,
 		'profile': profile,
