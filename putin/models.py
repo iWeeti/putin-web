@@ -18,6 +18,12 @@ class EmojiStats(models.Model):
         db_table = 'emoji_stats'
         unique_together = (('guild_id', 'emoji_id'),)
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 # class Feeds(models.Model):
 #     id = models.AutoField()
@@ -41,6 +47,12 @@ class GuildModConfig(models.Model):
         managed = False
         db_table = 'guild_mod_config'
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 class IndexAnnouncement(models.Model):
     title = models.CharField(max_length=100)
@@ -50,6 +62,12 @@ class IndexAnnouncement(models.Model):
     class Meta:
         managed = False
         db_table = 'index_announcement'
+
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
 
 
 class IndexChoice(models.Model):
@@ -61,6 +79,12 @@ class IndexChoice(models.Model):
         managed = False
         db_table = 'index_choice'
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 class IndexQuestion(models.Model):
     question_text = models.CharField(max_length=200)
@@ -70,6 +94,12 @@ class IndexQuestion(models.Model):
         managed = False
         db_table = 'index_question'
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 class Plonks(models.Model):
     guild_id = models.BigIntegerField(blank=True, null=True)
@@ -78,6 +108,12 @@ class Plonks(models.Model):
     class Meta:
         managed = False
         db_table = 'plonks'
+
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
 
 
 class Profiles(models.Model):
@@ -99,6 +135,12 @@ class Profiles(models.Model):
         managed = False
         db_table = 'profiles'
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 class Reminders(models.Model):
     expires = models.DateTimeField(unique=True, blank=True, null=True)
@@ -110,6 +152,12 @@ class Reminders(models.Model):
         managed = False
         db_table = 'reminders'
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 class Rtfm(models.Model):
     user_id = models.BigIntegerField(unique=True, blank=True, null=True)
@@ -118,6 +166,12 @@ class Rtfm(models.Model):
     class Meta:
         managed = False
         db_table = 'rtfm'
+
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
 
 
 class Settings(models.Model):
@@ -139,6 +193,12 @@ class Settings(models.Model):
         managed = False
         db_table = 'settings'
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 class Starboard(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -150,6 +210,12 @@ class Starboard(models.Model):
     class Meta:
         managed = False
         db_table = 'starboard'
+
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
 
 
 class StarboardEntries(models.Model):
@@ -163,6 +229,12 @@ class StarboardEntries(models.Model):
         managed = False
         db_table = 'starboard_entries'
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 class Starrers(models.Model):
     author_id = models.BigIntegerField()
@@ -172,6 +244,12 @@ class Starrers(models.Model):
         managed = False
         db_table = 'starrers'
         unique_together = (('author_id', 'entry'),)
+
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
 
 
 # class Store(models.Model):
@@ -199,6 +277,12 @@ class TagLookup(models.Model):
         managed = False
         db_table = 'tag_lookup'
 
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
 
 class Tags(models.Model):
     name = models.TextField(blank=True, null=True)
@@ -212,3 +296,9 @@ class Tags(models.Model):
     class Meta:
         managed = False
         db_table = 'tags'
+
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'

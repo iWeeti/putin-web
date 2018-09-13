@@ -8,6 +8,6 @@ def index(request):
 	settings = Settings.objects.all()[0]
 	context = {
 		'ann': ann[0:5],
-		'feeds': settings
+		'settings': settings
 	}
 	return render(request, 'putin/home.html', context)
