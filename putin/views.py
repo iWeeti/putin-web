@@ -14,9 +14,9 @@ def index(request):
 @login_required
 def profile(request):
 	ann = Announcement.objects.all()[::-1]
-	if request.uid:
+	if request.GET['uid']:
 		try:
-			profile = Profiles.objects.using('bot').get(id=request.uid)
+			profile = Profiles.objects.using('bot').get(id=request.GET['uid'])
 		except:
 			profile = None
 	else:
