@@ -1,4 +1,6 @@
 {% extends "putin/base.html" %}
 {% block content %}
-<p>{{ guilds }}</p>
+{% for guild in guilds %}
+  <p>{{ guild.name }}</p>
+{% endfor %}
 {% endblock content %}
