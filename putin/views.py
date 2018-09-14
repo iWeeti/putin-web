@@ -49,7 +49,7 @@ def profile(request):
 def guilds(request):
 	ann = Announcement.objects.all()[::-1]
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
-	bot_guilds = Guilds.objects.all()
+	bot_guilds = Guilds.objects.using('bot').all()
 	# _guilds = [_ for _ in guilds if _['id'] in bot_guilds]
 	_guilds = None
 	print(bot_guilds)
