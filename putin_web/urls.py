@@ -8,11 +8,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
+	path('meme/', include('meme.urls')),
     path('', include('putin.urls')),
     re_path(r'^discord/', include('discord_bind.urls'), name='discord'),
     path('register/', user_views.register, name='register'),
 	path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-	path('meme/', include('meme.urls')),
 ]
 
 if settings.DEBUG:
