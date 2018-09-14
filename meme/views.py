@@ -38,4 +38,4 @@ def meme(request):
 		'',
 	]
 	_meme = random.choice(memes)
-	return HttpResponse(f'\{"meme":"{_meme}"\}')
+	return HttpResponse('{"meme":"{0}"}'.format(0=_meme))
