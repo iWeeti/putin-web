@@ -50,7 +50,7 @@ def guilds(request):
 	ann = Announcement.objects.all()[::-1]
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
 	bot_guilds = requests.get('https://discordapp.com/api/guilds/', headers={'Authorization': f'Bot {config.token}'})
-	_guilds = [_ for _ in guilds if guild in bot_guilds]
+	_guilds = [_ for _ in guilds if _ in bot_guilds]
 	print(_guilds)
 	print(guilds)
 	context = {
