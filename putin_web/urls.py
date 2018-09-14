@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
+    path('gu/', include('gu.urls')),
     path('', include('putin.urls')),
     re_path(r'^discord/', include('discord_bind.urls'), name='discord'),
     path('register/', user_views.register, name='register'),
