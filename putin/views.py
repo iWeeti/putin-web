@@ -39,14 +39,16 @@ def profile(request):
 		else:
 			profile = None
 	context = {
-		'ann': ann,
+		'ann': ann[0:3],
 		'profile': profile,
 	}
 	return render(request, 'putin/profile.html', context)
 
 def guilds(request):
+	ann = Announcement.objects.all()[::-1]
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds').json()
 	context = {
+		'ann': ann[0:3],
 		'guilds': guilds
 	}
 	return render(request, 'putin/guilds.html', context)
