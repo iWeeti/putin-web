@@ -49,10 +49,7 @@ def guilds(request):
 	ann = Announcement.objects.all()[::-1]
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
 	_guilds = []
-	for guild in guilds:
-		bot_guild = requests.get('https://discordapp.com/api/guilds/', headers={'Authorization': f'Bot {conf.CLIENT_SECRET}'})
-		if bot_guild.status = '200':
-			_guilds.append(bot_guild)
+	bot_guilds = requests.get('https://discordapp.com/api/guilds/', headers={'Authorization': f'Bot {config.token}'})
 	context = {
 		'ann': ann,
 		'guilds': _guilds

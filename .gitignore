@@ -11,3 +11,6 @@ blog/static/blog/node_modules/*
 users/static/users/node_modules/*
 letsencrypt/*
 certbot-auto
+config.py
+putin_web/settings.py
+discord_bind/conf.py
