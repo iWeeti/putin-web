@@ -46,7 +46,7 @@ def profile(request):
 
 def guilds(request):
 	ann = Announcement.objects.all()[::-1]
-	guilds = requests.get('https://discordapp.com/api/users/@me/guilds').json()
+	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', authorization=f'Bearer {request.user.discorduser.access_token}').json()
 	context = {
 		'ann': ann[0:3],
 		'guilds': guilds
