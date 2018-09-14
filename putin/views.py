@@ -2,7 +2,8 @@ from django.shortcuts import render
 from blog.models import Announcement
 from django.contrib.auth.decorators import login_required
 from .models import Settings, Profiles
-import psycopg2
+import requests
+import json
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
@@ -42,3 +43,10 @@ def profile(request):
 		'profile': profile,
 	}
 	return render(request, 'putin/profile.html', context)
+
+def guilds(request):
+	guilds = rquests.get('https://discordapp.com/api/users/@me/guilds').json()
+	context = {
+		'guilds': guilds
+	}
+	return render(request, 'putin/guilds.html', context)
