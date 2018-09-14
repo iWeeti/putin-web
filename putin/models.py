@@ -205,7 +205,7 @@ class Rtfm(models.Model):
 
 
 class Guilds(models.Model):
-    id = models.BigIntegerField(blank=True, null=True)
+    id = models.BigIntegerField(blank=True, null=True, primary_key=True)
 
     class Meta:
         managed = False
