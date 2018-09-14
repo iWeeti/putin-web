@@ -5,7 +5,6 @@ from .models import Settings, Profiles
 import requests
 import json
 from discord_bind import conf
-from . import config
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
@@ -47,11 +46,15 @@ def profile(request):
 	return render(request, 'putin/profile.html', context)
 
 def guilds(request):
+	from . import config
 	ann = Announcement.objects.all()[::-1]
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
 	bot_guilds = requests.get('https://discordapp.com/api/guilds/', headers={'Authorization': f'Bot {config.token}'})
+	_guilds = [_ for _ in guilds if guild in bot_guilds]
+	print(_guilds)
+	print(guilds)
 	context = {
 		'ann': ann,
-		'guilds': guilds
+		'guilds': _guilds
 	}
 	return render(request, 'putin/guilds.html', context)
