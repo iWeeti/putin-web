@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Settings, Profiles
 import requests
 import json
+from discord_bind import conf
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
@@ -47,8 +48,13 @@ def profile(request):
 def guilds(request):
 	ann = Announcement.objects.all()[::-1]
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
+	_guilds = []
+	for guild in guilds:
+		bot_guild = requests.get('https://discordapp.com/api/guilds/', headers={'Authorization': f'Bot {conf.CLIENT_SECRET}'})
+		if bot_guild.status = '200':
+			_guilds.append(bot_guild)
 	context = {
-		'ann': ann[0:3],
-		'guilds': guilds
+		'ann': ann,
+		'guilds': _guilds
 	}
 	return render(request, 'putin/guilds.html', context)
