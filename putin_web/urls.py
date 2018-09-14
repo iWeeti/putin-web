@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.urls import path, include, re_path
+from django.urls import path, include, re_path, url
 from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -12,6 +12,7 @@ urlpatterns = [
     re_path(r'^discord/', include('discord_bind.urls'), name='discord'),
     path('register/', user_views.register, name='register'),
 	path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+	url(r'^api-auth/', include('rest_framework.urls')),
 ]
 
 if settings.DEBUG:
