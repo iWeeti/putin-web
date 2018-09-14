@@ -1,3 +1,3 @@
 from django.db import models
 
-#xD
+# Create your models here.
