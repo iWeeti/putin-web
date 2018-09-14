@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from blog.models import Announcement
 from django.contrib.auth.decorators import login_required
 from .models import Settings, Profiles, Guilds
@@ -59,3 +59,6 @@ def guilds(request):
 		'guilds': _guilds
 	}
 	return render(request, 'putin/guilds.html', context)
+
+def invite(request):
+	return recirect('https://discordapp.com/api/oauth2/authorize?client_id=488929645186514954&permissions=8&redirect_uri=https%3A%2F%2Fw-bot.ml%2Fdiscord%2Fcb&scope=bot')
