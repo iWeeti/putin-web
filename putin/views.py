@@ -52,7 +52,7 @@ def guilds(request):
 	bot_guilds = requests.get('https://discordapp.com/api/guilds/', headers={'Authorization': f'Bot {config.token}'})
 	_guilds = [_ for _ in guilds if _ in bot_guilds]
 	print(_guilds)
-	print(guilds)
+	print(bot_guilds)
 	context = {
 		'ann': ann,
 		'guilds': _guilds
