@@ -23,7 +23,6 @@ INSTALLED_APPS = [
     'discord_bind',
     'users.apps.UsersConfig',
     'putin.apps.PutinConfig',
-    'gu.apps.GuConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
