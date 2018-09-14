@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
 import random
 
 def meme(request):
@@ -238,4 +238,4 @@ def meme(request):
 		'https://media.discordapp.net/attachments/490209717214248963/490219464260845568/shoo.png?width=284&height=301'
 	]
 	_meme = random.choice(memes)
-	return HttpResponse('{\"meme\":\"' + _meme + '\"}')
+	return JsonResponse({'meme': _meme})
