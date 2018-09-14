@@ -45,7 +45,7 @@ def profile(request):
 	return render(request, 'putin/profile.html', context)
 
 def guilds(request):
-	guilds = rquests.get('https://discordapp.com/api/users/@me/guilds').json()
+	guilds = requests.get('https://discordapp.com/api/users/@me/guilds').json()
 	context = {
 		'guilds': guilds
 	}
