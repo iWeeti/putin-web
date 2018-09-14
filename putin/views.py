@@ -5,6 +5,7 @@ from .models import Settings, Profiles
 import requests
 import json
 from discord_bind import conf
+import config
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
