@@ -204,6 +204,20 @@ class Rtfm(models.Model):
         return 'bot'
 
 
+class Guilds(models.Model):
+    id = models.BigIntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'guilds'
+
+    def db_for_write(self, model, **hints):
+        return 'bot'
+
+    def db_for_read(self, model, **hints):
+        return 'bot'
+
+
 class Settings(models.Model):
     id = models.BigIntegerField(blank=True, primary_key=True)
     message_delete = models.BooleanField(blank=True, null=True)
