@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'putin/main.css' %}">
+    <link rel="icon" href="http://w-bot.ml/static/pfp.jpg">
 
 	{% if title %}
 		<title>W.Bot - {{ title }}</title>
@@ -19,7 +20,7 @@
 	<header class="site-header">
     <nav class="navbar navbar-expand-md navbar-secondary bg-dark navbar-fixed-top">
       <div class="container">
-        <a class="navbar-brand mr-4" href="{% url 'putin-me' %}"><img src="https://w-bot.ml/media/pfp.jpg" style="border-radius: 25%;" width="30" height="30" alt="W.Bot Navbar"></a>
+        <a class="navbar-brand mr-4" href="{% url 'putin-me' %}"><img src="https://w-bot.ml/static/pfp.jpg" style="border-radius: 25%;" width="30" height="30" alt="W.Bot Navbar"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
