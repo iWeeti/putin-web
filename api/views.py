@@ -241,14 +241,38 @@ def meme(request):
 		'https://media.discordapp.net/attachments/488071752778252319/490235405816561664/GTqDNgXe25I16SBNd39BmEB2CjYEDhCMUKIvMBxnvFA.jpg?width=311&height=301',
 		'https://media.discordapp.net/attachments/488071752778252319/490235467917426696/Screenshot_20180831-161550-924.png?width=400&height=225',
 		'https://media.discordapp.net/attachments/488071752778252319/490235310081572885/1b21242.jpg?width=310&height=300',
-		'https://pa1.narvii.com/6384/0316c916645e756bdc2845e5d7ec67cce3bfbdb0_hq.gif'
+		'https://pa1.narvii.com/6384/0316c916645e756bdc2845e5d7ec67cce3bfbdb0_hq.gif',
+		'https://cdn.discordapp.com/attachments/488071752778252319/490483428651958273/tenor.gif',
 	]
 	_meme = random.choice(memes)
 	return JsonResponse({'meme': _meme})
 
 def rr(reqest):
 	responses = [
-		'',
+		'u have been diagnose with big stupid',
+	'w.bot more like m.bot mario bot waahoo',
+	'do u know da wae of the epic trollface?',
+	'Sans Gaming TV epic',
+	'noahvn was here lol',
+	':notes: NOTHINGS GONNA BREAK MY STRIDE! NOTHINGS GONNA SLOW ME DOWN, OH NO! IVE GOT TO KEEP ON MOOOVING! :notes:',
+	'Do you are have sad',
+	'go commit deathpacito',
+	'Knock knock - whos there - Oscar - oscar who - Than Oscar',
+	'Thanos Car',
+	'sad',
+	'Heres a fun fact: if you ping everyone you have gay',
+	'You have now been diagnosed with the big stupid',
+	'getin furst bonner, veri emotionel',
+	'Do you have hot',
+	'SHIR UP BIRCH',
+	'Roses are red, violets are blue. Unregistered Hypercam 2',
+	'@everyone ha ha trolled gangnam epic style',
+	'hi u ok',
+	'I know a magic trick. Take your age, and minus it by 0. You\'ve got your age. Boom. Mind = blown!',
+	'H E C C',
+	'Real kiwi hours',
+	'Quack',
+	'Psst...i\'m not a bot. I\'m the main character in Detroit: Become Mark Zucc',
 	]
 	_rr = random.choice(responses)
 	return JsonResponse({'rr': _rr})
