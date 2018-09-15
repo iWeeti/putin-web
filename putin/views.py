@@ -66,7 +66,8 @@ def guilds(request):
 
 def dashboard(request):
 	ann = Announcement.objects.all()[::-1]
-	_settings = Settings.objects.using('bot').get(id=request.GET['id'])
+	_settings = Settings.objects.using('bot').all()[0]
+	# .get(id=int(request.GET['id']))
 	form = SettingsForm()
 	context = {
 		'ann': ann,
