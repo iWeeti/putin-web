@@ -3,12 +3,12 @@ from .serializers import ProfileSerializer
 from rest_framework.response import Response
 
 
-class ProfileViewSet(viewsets.ViewSet):
+# class ProfileViewSet(viewsets.ViewSet):
 
-	def list(self, request):
-		queryset = Profiles.objects.all()
-		serializer = ProfileSerializer(queryset, many=True)
-		return Response(serializer.data)
+# 	def list(self, request):
+# 		queryset = Profiles.objects.all()
+# 		serializer = ProfileSerializer(queryset, many=True)
+# 		return Response(serializer.data)
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
