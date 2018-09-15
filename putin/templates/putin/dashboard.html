@@ -2,6 +2,5 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <h1>{{ guild_id }}</h1>
-	{{ csrf_token }}
-	{{ form|crispy }}
+	{{ settings|crispy }}
 {% endblock content %}
