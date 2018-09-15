@@ -1,5 +1,5 @@
 from django import forms
-from .models import Settngs
+from .models import Settings
 
 class SettingsForm(forms.ModelForm):
 	class Meta:
