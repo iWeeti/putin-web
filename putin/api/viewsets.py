@@ -1,6 +1,7 @@
 from putin.models import Profiles
 from .serializers import ProfileSerializer
 from rest_framework.response import Response
+from rest_framework import viewsets
 
 
 # class ProfileViewSet(viewsets.ViewSet):
