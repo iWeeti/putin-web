@@ -64,7 +64,12 @@ def guilds(request):
 	return render(request, 'putin/guilds.html', context)
 
 def dashboard(request):
-	return render(request. 'putin/dashboard.html')
+	ann = Announcement.objects.all()[::-1]
+	context = {
+		'ann': ann,
+		'guild_id': request.GET['id']
+	}
+	return render(request, 'putin/dashboard.html')
 
 def invite(request):
 	return redirect('https://discordapp.com/api/oauth2/authorize?client_id=488929645186514954&permissions=8&redirect_uri=https%3A%2F%2Fw-bot.ml%2Fdiscord%2Fcb&scope=bot')
