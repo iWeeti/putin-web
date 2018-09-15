@@ -1,6 +1,6 @@
 {% extends "putin/base.html" %}
 {% block content %}
 {% for guild in guilds %}
-  <a href="{% url 'putin-dashboard' {{ guild.id }} %}">{{ guild.name }}</a>
+  <a href="{% url 'putin-dashboard' guild.id %}">{{ guild.name }}</a>
 {% endfor %}
 {% endblock content %}
