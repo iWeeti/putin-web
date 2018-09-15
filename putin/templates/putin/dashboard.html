@@ -1,4 +1,7 @@
 {% extends 'putin/base.html' %}
 {% block content %}
 <h1>{{ guild_id }}</h1>
+{% for option in settings %}
+	<p>{{ option }}</p>
+{% endfor %}
 {% endblock content %}

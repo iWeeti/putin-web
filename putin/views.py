@@ -67,7 +67,8 @@ def dashboard(request):
 	ann = Announcement.objects.all()[::-1]
 	context = {
 		'ann': ann,
-		'guild_id': request.GET['id']
+		'guild_id': request.GET['id'],
+		'settings': Settings.objects.using('bot').get(id=request.GET['id'])
 	}
 	return render(request, 'putin/dashboard.html', context)
 
