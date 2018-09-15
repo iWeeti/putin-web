@@ -56,7 +56,7 @@ def guilds(request):
 	for guild in guilds:
 		guild_perms = discord.Permissions(int(guild['permissions']))
 		print(guild_perms.manage_guild)
-		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild:
+		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
 			_guilds.append(guild)
 	context = {
 		'ann': ann,
