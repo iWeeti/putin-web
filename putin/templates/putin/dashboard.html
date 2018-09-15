@@ -1,5 +1,7 @@
 {% extends 'putin/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 <h1>{{ guild_id }}</h1>
-	<p>{{ settings }}</p>
+	{{ csrf_token }}
+	{{ form|crispy }}
 {% endblock content %}

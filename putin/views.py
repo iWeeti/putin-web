@@ -6,6 +6,7 @@ import requests
 import json
 from discord_bind import conf
 from . import config
+from .forms import SettingsForm
 import discord
 
 def index(request):
@@ -65,10 +66,11 @@ def guilds(request):
 
 def dashboard(request):
 	ann = Announcement.objects.all()[::-1]
+	form = SettingsForm()
 	context = {
 		'ann': ann,
 		'guild_id': request.GET['id'],
-		'settings': Settings.objects.using('bot').get(id=request.GET['id'])
+		'settings': form
 	}
 	return render(request, 'putin/dashboard.html', context)
 
