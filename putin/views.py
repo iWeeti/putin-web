@@ -52,6 +52,7 @@ def guilds(request):
 	bot_guilds = Guilds.objects.using('bot').all()
 	bot_guilds_ids = [_.id for _ in bot_guilds]
 	_guilds = []
+	print(bot_guilds_ids)
 	for guild in guilds:
 		if guild['id'] in bot_guilds_ids:
 			_guilds.append(guild)
