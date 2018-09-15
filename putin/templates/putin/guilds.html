@@ -1,6 +1,6 @@
 {% extends "putin/base.html" %}
 {% block content %}
 {% for guild in guilds %}
-  <p>{{ guild.name }}</p>
+  <p>{{ guild.name }} | {{ guild.permissions }}</p>
 {% endfor %}
 {% endblock content %}
