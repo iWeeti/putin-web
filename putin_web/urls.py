@@ -4,6 +4,7 @@ from django.urls import path, include, re_path
 from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
+from .router import router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
