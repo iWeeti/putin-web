@@ -6,6 +6,7 @@ import requests
 import json
 from discord_bind import conf
 from . import config
+import discord
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
@@ -53,13 +54,19 @@ def guilds(request):
 	bot_guilds_ids = [_.id for _ in bot_guilds]
 	_guilds = []
 	for guild in guilds:
-		if guild['id'] in str(bot_guilds_ids):
+		guild_perms = discord.Permissions(int(guild['permissions']))
+		print(guild_perms.manage_guild)
+		print(guild_perms.manage_server)
+		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild:
 			_guilds.append(guild)
 	context = {
 		'ann': ann,
 		'guilds': _guilds
 	}
 	return render(request, 'putin/guilds.html', context)
+
+def dashboard(request):
+	return None
 
 def invite(request):
 	return redirect('https://discordapp.com/api/oauth2/authorize?client_id=488929645186514954&permissions=8&redirect_uri=https%3A%2F%2Fw-bot.ml%2Fdiscord%2Fcb&scope=bot')
