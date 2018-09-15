@@ -2,7 +2,7 @@ from django.http import JsonResponse
 import random
 
 def meme(request):
-	memes  =[
+	memes = [
 		'https://media.discordapp.net/attachments/490209717214248963/490210033133682690/Rare_Roblox_nintendo_ds_box_art.jpg?width=308&height=301',
 		'https://media.discordapp.net/attachments/490209717214248963/490210142244306955/Ratatouille_4.gif',
 		'https://media.discordapp.net/attachments/490209717214248963/490210143708119051/cry.jpg',
