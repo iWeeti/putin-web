@@ -56,7 +56,7 @@ def guilds(request):
 		if guild['id'] in bot_guilds_ids:
 			_guilds.append(guild)
 	
-	print(bot_guilds)
+	print(_guilds)
 	context = {
 		'ann': ann,
 		'guilds': _guilds
