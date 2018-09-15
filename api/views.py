@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from putin.models import Profiles
 import random
 
 def meme(request):
@@ -276,3 +277,18 @@ def rr(reqest):
 	]
 	_rr = random.choice(responses)
 	return JsonResponse({'rr': _rr})
+
+def profile(request):
+	profile = Profiles.objects.using('bot').get(id=request.GET['id'])
+	profile = {
+		'description': profile.description,
+		'birthday': profile.birthday,
+		'experience': profile.experience,
+		'cash': profile.cash,
+		'picks': profile.picks,
+		'rings': profile.picks,
+		'diamonds': profile.diamonds,
+		'roses': profile.roses,
+		'alchol': profile.alcohol
+	}
+	return JsonResponse(profile or {'code': '404', 'message': 'Not Found'})
