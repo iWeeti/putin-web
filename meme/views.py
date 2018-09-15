@@ -239,7 +239,8 @@ def meme(request):
 		'https://media.discordapp.net/attachments/488071752778252319/490234522508460043/ewexxdm877m11.jpg?width=303&height=300',
 		'https://media.discordapp.net/attachments/488071752778252319/490235405816561664/GTqDNgXe25I16SBNd39BmEB2CjYEDhCMUKIvMBxnvFA.jpg?width=311&height=301',
 		'https://media.discordapp.net/attachments/488071752778252319/490235467917426696/Screenshot_20180831-161550-924.png?width=400&height=225',
-		'https://media.discordapp.net/attachments/488071752778252319/490235310081572885/1b21242.jpg?width=310&height=300'
+		'https://media.discordapp.net/attachments/488071752778252319/490235310081572885/1b21242.jpg?width=310&height=300',
+		'https://pa1.narvii.com/6384/0316c916645e756bdc2845e5d7ec67cce3bfbdb0_hq.gif'
 	]
 	_meme = random.choice(memes)
 	return JsonResponse({'meme': _meme})

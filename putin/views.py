@@ -56,7 +56,7 @@ def guilds(request):
 	print(bot_guilds)
 	context = {
 		'ann': ann,
-		'guilds': _guilds
+		'guilds': bot_guilds
 	}
 	return render(request, 'putin/guilds.html', context)
 
