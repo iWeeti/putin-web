@@ -19,7 +19,7 @@
       <img class="rounded-circle article-img" src="https://cdn.discordapp.com/avatars/{{ post.author.discorduser.uid }}/{{ post.author.discorduser.avatar }}.png?size=1024">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author.discorduser.username }}#{{ post.author.discorduser.discriminator }}</a>
+              <a class="mr-2" href="{ url 'putin-profile' }?{{ post.author.discorduser.uid }}">{{ post.author.discorduser.username }}#{{ post.author.discorduser.discriminator }}</a>
               <small class="text-muted">{{ post.date_posted|date:"F d Y" }}</small>
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
