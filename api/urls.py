@@ -4,4 +4,5 @@ from . import views
 urlpatterns = [
 	path('meme/', views.meme, name='meme'),
 	path('rr/', views.rr, name='rr'),
+	path('fact/', views.fact, name='fact'),
 ]
