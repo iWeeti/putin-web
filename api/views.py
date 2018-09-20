@@ -4,7 +4,7 @@ from putin.models import Profiles
 import random
 
 def fact(request):
-	facts = [
+    facts = [
         'If you somehow found a way to extract all of the gold from the bubbling core of our lovely little planet, you would be able to cover all of the land in a layer of gold up to your knees.',
         'McDonalds calls frequent buyers of their food “heavy users.”',
         'The average person spends 6 months of their lifetime waiting on a red light to turn green.',
@@ -164,8 +164,8 @@ def fact(request):
         'For every human on Earth there are 1.6 million ants. The total weight of all those ants, however, is about the same as all the humans.',
         'On Jupiter and Saturn it rains diamonds.']
 
-        fact = random.choice(facts)
-        return JsonResponse({'fact': fact})
+    fact = random.choice(facts)
+    return JsonResponse({'fact': fact})
 
 def meme(request):
 	memes = [
