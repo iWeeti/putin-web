@@ -164,8 +164,8 @@ def fact(request):
         'For every human on Earth there are 1.6 million ants. The total weight of all those ants, however, is about the same as all the humans.',
         'On Jupiter and Saturn it rains diamonds.']
 
-    fact = random.choice(facts)
-    return JsonResponse({'fact': fact})
+        fact = random.choice(facts)
+        return JsonResponse({'fact': fact})
 
 def meme(request):
 	memes = [
