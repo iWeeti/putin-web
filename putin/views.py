@@ -65,16 +65,29 @@ def guilds(request):
 	return render(request, 'putin/guilds.html', context)
 
 def dashboard(request):
-	ann = Announcement.objects.all()[::-1]
-	_settings = Settings.objects.using('bot').get(pk=request.GET['id'])
-	# .get(id=int(request.GET['id']))
-	form = SettingsForm(instance=_settings)
-	context = {
-		'ann': ann,
-		'guild_id': request.GET['id'],
-		'settings': form
-	}
-	return render(request, 'putin/dashboard.html', context)
+	if request.method == 'POST':
+		form = SettingsForm(request.POST)
+		ann = Announcement.objects.all()[::-1]
+		# _settings = Settings.objects.using('bot').get(pk=request.GET['id'])
+		# .get(id=int(request.GET['id']))
+		# form = SettingsForm(instance=_settings)
+		context = {
+			'ann': ann,
+			'guild_id': request.GET['id'],
+			'settings': form
+		}
+		return render(request, 'putin/dashboard.html', context)
+	else:
+		ann = Announcement.objects.all()[::-1]
+		_settings = Settings.objects.using('bot').get(pk=request.GET['id'])
+		# .get(id=int(request.GET['id']))
+		form = SettingsForm(instance=_settings)
+		context = {
+			'ann': ann,
+			'guild_id': request.GET['id'],
+			'settings': form
+		}
+		return render(request, 'putin/dashboard.html', context)
 
 def invite(request):
 	return redirect('https://discordapp.com/api/oauth2/authorize?client_id=488929645186514954&permissions=8&redirect_uri=https%3A%2F%2Fw-bot.ml%2Fdiscord%2Fcb&scope=bot')
