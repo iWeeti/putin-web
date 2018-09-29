@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from blog.models import Announcement
 from django.contrib.auth.decorators import login_required
 from .models import Settings, Profiles, Guilds
@@ -82,6 +83,7 @@ def dashboard(request):
 			_guilds.append(guild['id'])
 			__guilds[guild['id']] = guild
 	if not request.GET['id'] in _guilds:
+		messages.warning(request, 'You do not have access to change the settings of this guild.')
 		return redirect('putin-guilds')
 	if request.method == 'POST':
 		ann = Announcement.objects.all()[::-1]
