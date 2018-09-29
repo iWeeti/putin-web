@@ -1,7 +1,7 @@
 {% extends "putin/base.html" %}
 {% block content %}
 
-<table class="table">
+<table class="table-dark table-hover">
   <thead>
     <tr>
       <th>Guild</th>
@@ -11,8 +11,8 @@
   <tbody>
     <tr>
   	{% for guild in guilds %}
-      <th scope="row">{{ guild.name</th>
-	  <td><a href="{% url 'putin-dashboard' %}?id={{ guild.id }}">{{ guild.name }}</a></td>
+      <th scope="row">{{ guild.name }}</th>
+	  <td><a href="{% url 'putin-dashboard' %}?id={{ guild.id }}">Edit</a></td>
 	{% endfor %}
     </tr>
   </tbody>
