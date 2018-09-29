@@ -9,6 +9,7 @@ from discord_bind import conf
 from . import config
 from .forms import SettingsForm
 import discord
+import time
 
 def index(request):
 	ann = Announcement.objects.all()[::-1]
@@ -84,6 +85,7 @@ def dashboard(request):
 			__guilds[guild['id']] = guild
 	if not request.GET['id'] in _guilds:
 		messages.warning(request, 'You do not have access to change the settings of this guild.')
+		time.sleep(1)
 		return redirect('putin-guilds')
 	if request.method == 'POST':
 		ann = Announcement.objects.all()[::-1]
