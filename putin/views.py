@@ -69,6 +69,7 @@ def dashboard(request):
 		ann = Announcement.objects.all()[::-1]
 		_settings = Settings.objects.using('bot').get(pk=request.GET['id'])
 		form = SettingsForm(request.POST, instance=_settings)
+		form.save()
 		# .get(id=int(request.GET['id']))
 		# form = SettingsForm(instance=_settings)
 		context = {
