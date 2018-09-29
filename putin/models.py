@@ -78,6 +78,9 @@ class Profiles(models.Model):
     name = models.TextField(blank=True, null=True)
     pfp = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return f'Profile of {self.name}'
+
     class Meta:
         managed = False
         db_table = 'profiles'
