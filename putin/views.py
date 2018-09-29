@@ -89,7 +89,8 @@ def dashboard(request):
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
-			'settings': form
+			'settings': form,
+			'guild': _guilds[request.GET['id']]
 		}
 		return render(request, 'putin/dashboard.html', context)
 	else:
@@ -102,7 +103,8 @@ def dashboard(request):
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
-			'settings': form
+			'settings': form,
+			'guild': _guilds[request.GET['id']]
 		}
 		return render(request, 'putin/dashboard.html', context)
 
