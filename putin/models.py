@@ -111,19 +111,19 @@ class Guilds(models.Model):
 
 
 class Settings(models.Model):
-    id = models.BigIntegerField(blank=True, primary_key=True)
-    message_delete = models.BooleanField(blank=True, null=True)
-    message_edit = models.BooleanField(blank=True, null=True)
-    kick = models.BooleanField(blank=True, null=True)
-    ban = models.BooleanField(blank=True, null=True)
-    log_join = models.BooleanField(blank=True, null=True)
-    leave = models.BooleanField(blank=True, null=True)
-    welcome_enabled = models.BooleanField(blank=True, null=True)
+    id = models.BigIntegerField(primary_key=True)
+    message_delete = models.BooleanField()
+    message_edit = models.BooleanField()
+    kick = models.BooleanField()
+    ban = models.BooleanField()
+    log_join = models.BooleanField()
+    leave = models.BooleanField()
+    welcome_enabled = models.BooleanField()
     welcome_channel = models.BigIntegerField(blank=True, null=True)
-    log_commands = models.BooleanField(blank=True, null=True)
-    unban = models.BooleanField(blank=True, null=True)
-    buy_roles = models.BooleanField(blank=True, null=True)
-    advert = models.BooleanField(blank=True, null=True)
+    log_commands = models.BooleanField(b)
+    unban = models.BooleanField()
+    buy_roles = models.BooleanField()
+    advert = models.BooleanField()
     logging_channel = models.BigIntegerField(blank=True)
 
     class Meta:
