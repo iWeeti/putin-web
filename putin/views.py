@@ -73,10 +73,12 @@ def dashboard(request):
 	bot_guilds = Guilds.objects.using('bot').all()
 	bot_guilds_ids = [_.id for _ in bot_guilds]
 	_guilds = []
+	guilds = {}
 	for guild in guilds:
 		guild_perms = discord.Permissions(int(guild['permissions']))
 		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
 			_guilds.append(guild['id'])
+			guilds[guild['id']] = guild
 	if not request.GET['id'] in _guilds:
 		return redirect('putin-guilds')
 	if request.method == 'POST':
@@ -90,7 +92,7 @@ def dashboard(request):
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': _guilds[int(request.GET['id'])]
+			'guild': _guilds[request.GET['id']]
 		}
 		return render(request, 'putin/dashboard.html', context)
 	else:
@@ -104,7 +106,7 @@ def dashboard(request):
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': _guilds[int(request.GET['id'])]
+			'guild': _guilds[request.GET['id']]
 		}
 		return render(request, 'putin/dashboard.html', context)
 
