@@ -1,10 +1,3 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
 
@@ -18,24 +11,6 @@ class EmojiStats(models.Model):
         db_table = 'emoji_stats'
         unique_together = (('guild_id', 'emoji_id'),)
 
-    def db_for_write(self, EmojiStats, **hints):
-        return 'bot'
-
-    def db_for_read(self, EmojiStats, **hints):
-        return 'bot'
-
-
-# class Feeds(models.Model):
-#     id = models.AutoField()
-#     channel_id = models.BigIntegerField(blank=True, null=True)
-#     role_id = models.BigIntegerField(blank=True, null=True)
-#     name = models.TextField(blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = 'feeds'
-
-
 class GuildModConfig(models.Model):
     id = models.BigIntegerField(primary_key=True)
     raid_mode = models.SmallIntegerField(blank=True, null=True)
@@ -47,12 +22,6 @@ class GuildModConfig(models.Model):
         managed = False
         db_table = 'guild_mod_config'
 
-    def db_for_write(self, GuildModConfig, **hints):
-        return 'bot'
-
-    def db_for_read(self, GuildModConfig, **hints):
-        return 'bot'
-
 
 class IndexAnnouncement(models.Model):
     title = models.CharField(max_length=100)
@@ -62,12 +31,6 @@ class IndexAnnouncement(models.Model):
     class Meta:
         managed = False
         db_table = 'index_announcement'
-
-    def db_for_write(self, IndexAnnouncement, **hints):
-        return 'bot'
-
-    def db_for_read(self, IndexAnnouncement, **hints):
-        return 'bot'
 
 
 class IndexChoice(models.Model):
@@ -79,12 +42,6 @@ class IndexChoice(models.Model):
         managed = False
         db_table = 'index_choice'
 
-    def db_for_write(self, IndexChoice, **hints):
-        return 'bot'
-
-    def db_for_read(self, IndexChoice, **hints):
-        return 'bot'
-
 
 class IndexQuestion(models.Model):
     question_text = models.CharField(max_length=200)
@@ -94,12 +51,6 @@ class IndexQuestion(models.Model):
         managed = False
         db_table = 'index_question'
 
-    def db_for_write(self, IndexQuestion, **hints):
-        return 'bot'
-
-    def db_for_read(self, IndexQuestion, **hints):
-        return 'bot'
-
 
 class Plonks(models.Model):
     guild_id = models.BigIntegerField(blank=True, null=True)
@@ -108,12 +59,6 @@ class Plonks(models.Model):
     class Meta:
         managed = False
         db_table = 'plonks'
-
-    def db_for_write(self, Plonks, **hints):
-        return 'bot'
-
-    def db_for_read(self, Plonks, **hints):
-        return 'bot'
 
 
 class Profiles(models.Model):
@@ -137,40 +82,6 @@ class Profiles(models.Model):
         managed = False
         db_table = 'profiles'
 
-    def db_for_read(self, model, **hints):
-        """
-        Attempts to read auth models go to auth_db.
-        """
-        if model._meta.app_label == 'putin':
-            return 'bot'
-        return None
-
-    def db_for_write(self, model, **hints):
-        """
-        Attempts to write auth models go to auth_db.
-        """
-        if model._meta.app_label == 'putin':
-            return 'bot'
-        return None
-
-    def allow_relation(self, obj1, obj2, **hints):
-        """
-        Allow relations if a model in the auth app is involved.
-        """
-        if obj1._meta.app_label == 'putin' or \
-           obj2._meta.app_label == 'putin':
-           return True
-        return None
-
-    def allow_migrate(self, db, app_label, model_name=None, **hints):
-        """
-        Make sure the auth app only appears in the 'auth_db'
-        database.
-        """
-        if app_label == 'putin':
-            return db == 'bot'
-        return None
-
 
 class Reminders(models.Model):
     expires = models.DateTimeField(unique=True, blank=True, null=True)
@@ -182,12 +93,6 @@ class Reminders(models.Model):
         managed = False
         db_table = 'reminders'
 
-    def db_for_write(self, Reminders, **hints):
-        return 'bot'
-
-    def db_for_read(self, Reminders, **hints):
-        return 'bot'
-
 
 class Rtfm(models.Model):
     user_id = models.BigIntegerField(unique=True, blank=True, null=True)
@@ -197,25 +102,12 @@ class Rtfm(models.Model):
         managed = False
         db_table = 'rtfm'
 
-    def db_for_write(self, model, **hints):
-        return 'bot'
-
-    def db_for_read(self, model, **hints):
-        return 'bot'
-
-
 class Guilds(models.Model):
     id = models.BigIntegerField(blank=True, primary_key=True)
 
     class Meta:
         managed = False
         db_table = 'guilds'
-
-    def db_for_write(self, model, **hints):
-        return 'bot'
-
-    def db_for_read(self, model, **hints):
-        return 'bot'
 
 
 class Settings(models.Model):
@@ -232,16 +124,11 @@ class Settings(models.Model):
     unban = models.BooleanField(blank=True, null=True)
     buy_roles = models.BooleanField(blank=True, null=True)
     advert = models.BooleanField(blank=True, null=True)
+    logging_channel = models.BigIntegerField(blank=True, Null=True)
 
     class Meta:
         managed = False
         db_table = 'settings'
-
-    def db_for_write(self, model, **hints):
-        return 'bot'
-
-    def db_for_read(self, model, **hints):
-        return 'bot'
 
 
 class Starboard(models.Model):
@@ -254,12 +141,6 @@ class Starboard(models.Model):
     class Meta:
         managed = False
         db_table = 'starboard'
-
-    def db_for_write(self, Starboard, **hints):
-        return 'bot'
-
-    def db_for_read(self, Starboard, **hints):
-        return 'bot'
 
 
 class StarboardEntries(models.Model):
