@@ -48,6 +48,7 @@ def profile(request):
 	}
 	return render(request, 'putin/profile.html', context)
 
+@login_required
 def guilds(request):
 	ann = Announcement.objects.all()[::-1]
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
@@ -64,6 +65,7 @@ def guilds(request):
 	}
 	return render(request, 'putin/guilds.html', context)
 
+@login_required
 def dashboard(request):
 	try:
 		request.GET['id']
