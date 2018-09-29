@@ -95,7 +95,7 @@ def dashboard(request):
 	else:
 		ann = Announcement.objects.all()[::-1]
 		_settings = Settings.objects.using('bot').get(pk=request.GET['id'])
-		if not settings:
+		if not _settings:
 			_settings = Settings(id=request.GET['id'])
 		# .get(id=int(request.GET['id']))
 		form = SettingsForm(instance=_settings)
