@@ -95,7 +95,7 @@ DATABASES = {
     }
 }
 
-DATABASE_ROUTERS = ['blog.models.Post', 'blog.models.Announcement', 'putin.models.Profiles', 'putin.models.Settings']
+DATABASE_ROUTERS = ['putin_web.routers.BotRouter']
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
