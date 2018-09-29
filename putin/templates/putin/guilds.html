@@ -1,22 +1,21 @@
 {% extends "putin/base.html" %}
 {% block content %}
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Guild</th>
-      <th>Settings</th>
-  	</tr>
-  </thead>
-  <tbody>
-  	{% for guild in guilds %}
-    <tr>
-      <th scope="row">{{ guild.name }}</th>
-	  <td><a href="{% url 'putin-dashboard' %}?id={{ guild.id }}"><button type="button" class="btn btn-primary">Edit</button></a></td>
-    </tr>
-	{% endfor %}
-  </tbody>
-</table>
-
-
+<div class="content-section">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Guild</th>
+        <th>Settings</th>
+    	</tr>
+    </thead>
+    <tbody>
+    	{% for guild in guilds %}
+      <tr>
+        <th scope="row">{{ guild.name }}</th>
+  	  <td><a href="{% url 'putin-dashboard' %}?id={{ guild.id }}"><button type="button" class="btn btn-primary">Edit</button></a></td>
+      </tr>
+  	{% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock content %}
