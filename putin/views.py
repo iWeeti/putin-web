@@ -70,9 +70,9 @@ def dashboard(request):
 		ann = Announcement.objects.all()[::-1]
 		_settings = Settings.objects.using('bot').get(pk=request.GET['id'])
 		if request.POST['kick'] == 1:
-			_settings.kick = False
-		elif request.POST['kick'] == 2:
 			_settings.kick = True
+		elif request.POST['kick'] == 2:
+			_settings.kick = False
 		_settings.save()
 		# .get(id=int(request.GET['id']))
 		form = SettingsForm(instance=_settings)
