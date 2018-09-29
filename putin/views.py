@@ -65,6 +65,10 @@ def guilds(request):
 	return render(request, 'putin/guilds.html', context)
 
 def dashboard(request):
+	try:
+		request.GET['id']
+	except KeyError:
+		return redirect('putin-guilds')
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
 	bot_guilds = Guilds.objects.using('bot').all()
 	bot_guilds_ids = [_.id for _ in bot_guilds]
