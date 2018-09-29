@@ -74,7 +74,7 @@ def dashboard(request):
 		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
 			_guilds.append(guild['id'])
 	if not request.GET['id'] in _guilds:
-		return redirect('putin-home')
+		return redirect('putin-guilds')
 	if request.method == 'POST':
 		ann = Announcement.objects.all()[::-1]
 		_settings = Settings.objects.using('bot').get(pk=request.GET['id'])
