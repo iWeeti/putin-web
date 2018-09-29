@@ -90,7 +90,7 @@ def dashboard(request):
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': _guilds[request.GET['id']]
+			'guild': _guilds[int(request.GET['id'])]
 		}
 		return render(request, 'putin/dashboard.html', context)
 	else:
@@ -104,7 +104,7 @@ def dashboard(request):
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': _guilds[request.GET['id']]
+			'guild': _guilds[int(request.GET['id'])]
 		}
 		return render(request, 'putin/dashboard.html', context)
 
