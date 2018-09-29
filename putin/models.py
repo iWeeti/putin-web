@@ -120,7 +120,7 @@ class Settings(models.Model):
     leave = models.BooleanField()
     welcome_enabled = models.BooleanField()
     welcome_channel = models.BigIntegerField(blank=True, null=True)
-    log_commands = models.BooleanField(b)
+    log_commands = models.BooleanField()
     unban = models.BooleanField()
     buy_roles = models.BooleanField()
     advert = models.BooleanField()
