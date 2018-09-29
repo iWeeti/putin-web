@@ -124,7 +124,7 @@ class Settings(models.Model):
     unban = models.BooleanField(blank=True, null=True)
     buy_roles = models.BooleanField(blank=True, null=True)
     advert = models.BooleanField(blank=True, null=True)
-    logging_channel = models.BigIntegerField(blank=True, Null=True)
+    logging_channel = models.BigIntegerField(blank=True)
 
     class Meta:
         managed = False
