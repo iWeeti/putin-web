@@ -67,6 +67,7 @@ def guilds(request):
 def dashboard(request):
 	if request.method == 'POST':
 		form = SettingsForm(request.POST)
+		f.save()
 		ann = Announcement.objects.all()[::-1]
 		# _settings = Settings.objects.using('bot').get(pk=request.GET['id'])
 		# .get(id=int(request.GET['id']))
