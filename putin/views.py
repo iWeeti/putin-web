@@ -65,6 +65,16 @@ def guilds(request):
 	return render(request, 'putin/guilds.html', context)
 
 def dashboard(request):
+	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
+	bot_guilds = Guilds.objects.using('bot').all()
+	bot_guilds_ids = [_.id for _ in bot_guilds]
+	_guilds = []
+	for guild in guilds:
+		guild_perms = discord.Permissions(int(guild['permissions']))
+		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
+			_guilds.append(guild['id'])
+	if not request.GET['id'] in _guilds:
+		return redirect('putin-home')
 	if request.method == 'POST':
 		ann = Announcement.objects.all()[::-1]
 		_settings = Settings.objects.using('bot').get(pk=request.GET['id'])
