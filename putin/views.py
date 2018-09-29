@@ -66,7 +66,7 @@ def guilds(request):
 
 def dashboard(request):
 	if request.method == 'POST':
-		form = SettingsForm(request.POST)
+		# form = SettingsForm(request.POST)
 		ann = Announcement.objects.all()[::-1]
 		_settings = Settings.objects.using('bot').get(pk=request.GET['id'])
 		if request.POST['kick'] == 1:
@@ -75,7 +75,7 @@ def dashboard(request):
 			_settings.kick = True
 		_settings.save()
 		# .get(id=int(request.GET['id']))
-		# form = SettingsForm(instance=_settings)
+		form = SettingsForm(instance=_settings)
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
