@@ -4,13 +4,13 @@
   .card {
     box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2);
     width: 250px;
-    length: 250px;
+    length: 230px;
     transition: 0.3s;
-  }  
+}  
 </style>
 <div class="content-section">
   {% for guild in guilds %}
-  <div class="card col-md-2">
+  <div class="card">
     <img class="card-img-top" width="150" height="150" src="https://cdn.discordapp.com/icons/{{ guild.id }}/{{ guild.icon }}.png" alt="{{ guild.name }}">
     <div class="card-body">
       <h4 class="card-title">{{ guild.name }}</h4>
