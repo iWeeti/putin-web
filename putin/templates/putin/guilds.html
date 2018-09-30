@@ -9,8 +9,9 @@
 }  
 </style>
 <!-- <div class="content-section"> -->
+{% for guildlist in _guilds %}
 <div class="card-deck">
-  {% for guild in guilds %}
+  {% for guild in guildlist %}
   <div class="card">
     <img class="card-img-top" src="https://cdn.discordapp.com/icons/{{ guild.id }}/{{ guild.icon }}.png" alt="{{ guild.name }}">
     <div class="card-body">
@@ -26,4 +27,5 @@
   {% endfor %}
 </div>
 <br>
+{% endfor %}
 {% endblock content %}

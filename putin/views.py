@@ -61,9 +61,42 @@ def guilds(request):
 		guild_perms = discord.Permissions(int(guild['permissions']))
 		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
 			_guilds.append(guild)
+	__guilds = []
+	for index, guild in enumerate(_guilds):
+		if index <= 3:
+			try:
+				__guilds[0]
+			except KeyError:
+				__guilds[0] = []
+			__guilds[0].append(guild)
+		if index <= 6 and index > 3:
+			try:
+				__guilds[1]
+			except KeyError:
+				__guilds[1] = []
+			__guilds[1].append(guild)
+		if index <= 9 and index > 6:
+			try:
+				__guilds[3]
+			except KeyError:
+				__guilds[3] = []
+			__guilds[2].append(guild)
+		if index <= 12 and index > 9:
+			try:
+				__guilds[3]
+			except KeyError:
+				__guilds[3] = []
+			__guilds[3].append(guild)
+		if index <= 15 and index > 12:
+			try:
+				__guilds[4]
+			except KeyError:
+				__guilds[4] = []
+			__guilds[4].append(guild)
+
 	context = {
 		'ann': ann,
-		'guilds': _guilds
+		'_guilds': _guilds
 	}
 	return render(request, 'putin/guilds.html', context)
 
