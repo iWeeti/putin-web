@@ -76,7 +76,7 @@ def dashboard(request):
 		request.GET['id']
 	except KeyError:
 		return redirect('putin-guilds')
-	if reques.GET['id'] == '488035897489752075':
+	if request.GET['id'] == '488035897489752075':
 		webhook = Webhook.partial(495658670693154816, 'https://discordapp.com/api/webhooks/495658670693154816/7XrwT81R5BXGKn2IUIafEi795fXUBs19YY_1VAylzudcIvqBKZr_5HS7sE8ywuKBZsO3', adapter=RequestsWebhookAdapter())
 		webhook.send(f'{user.discorduser.username} accessed the settings through the website.', username='Website')
 	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
