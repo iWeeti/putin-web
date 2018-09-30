@@ -66,31 +66,31 @@ def guilds(request):
 		if index <= 3:
 			try:
 				__guilds[0]
-			except KeyError:
+			except IndexError:
 				__guilds[0] = []
 			__guilds[0].append(guild)
 		if index <= 6 and index > 3:
 			try:
 				__guilds[1]
-			except KeyError:
+			except IndexError:
 				__guilds[1] = []
 			__guilds[1].append(guild)
 		if index <= 9 and index > 6:
 			try:
 				__guilds[3]
-			except KeyError:
+			except IndexError:
 				__guilds[3] = []
 			__guilds[2].append(guild)
 		if index <= 12 and index > 9:
 			try:
 				__guilds[3]
-			except KeyError:
+			except IndexError:
 				__guilds[3] = []
 			__guilds[3].append(guild)
 		if index <= 15 and index > 12:
 			try:
 				__guilds[4]
-			except KeyError:
+			except IndexError:
 				__guilds[4] = []
 			__guilds[4].append(guild)
 
