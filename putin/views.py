@@ -53,50 +53,19 @@ def profile(request):
 @login_required
 def guilds(request):
 	ann = Announcement.objects.all()[::-1]
-	guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
+	_guilds = requests.get('https://discordapp.com/api/users/@me/guilds', headers={'Authorization': f'Bearer {request.user.discorduser.access_token}'}).json()
 	bot_guilds = Guilds.objects.using('bot').all()
 	bot_guilds_ids = [_.id for _ in bot_guilds]
-	_guilds = []
-	for guild in guilds:
+	guilds = []
+	for index, guild in enumerate(_guilds):
 		guild_perms = discord.Permissions(int(guild['permissions']))
+		guild['enum'] = index
 		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
 			_guilds.append(guild)
-	__guilds = []
-	for index, guild in enumerate(_guilds):
-		if index <= 3:
-			try:
-				__guilds[0]
-			except IndexError:
-				__guilds[0] = []
-			__guilds[0].append(guild)
-		if index <= 6 and index > 3:
-			try:
-				__guilds[1]
-			except IndexError:
-				__guilds[1] = []
-			__guilds[1].append(guild)
-		if index <= 9 and index > 6:
-			try:
-				__guilds[3]
-			except IndexError:
-				__guilds[3] = []
-			__guilds[2].append(guild)
-		if index <= 12 and index > 9:
-			try:
-				__guilds[3]
-			except IndexError:
-				__guilds[3] = []
-			__guilds[3].append(guild)
-		if index <= 15 and index > 12:
-			try:
-				__guilds[4]
-			except IndexError:
-				__guilds[4] = []
-			__guilds[4].append(guild)
 
 	context = {
 		'ann': ann,
-		'_guilds': _guilds
+		'guilds': guilds
 	}
 	return render(request, 'putin/guilds.html', context)
 
