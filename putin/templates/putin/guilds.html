@@ -8,7 +8,7 @@
     transition: 0.3s;
 }  
 </style>
-<div class="content-section">
+<!-- <div class="content-section"> -->
   {% for guild in guilds %}
   <div class="card">
     <img class="card-img-top" width="150" height="150" src="https://cdn.discordapp.com/icons/{{ guild.id }}/{{ guild.icon }}.png" alt="{{ guild.name }}">
@@ -21,5 +21,5 @@
     </div>
   </div>
   {% endfor %}
-</div>
+<!-- </div> -->
 {% endblock content %}
