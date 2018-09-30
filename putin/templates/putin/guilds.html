@@ -10,24 +10,7 @@
 </style>
 <!-- <div class="content-section"> -->
   {% for guild in guildlist %}
-  {% if guild.enum == 0 %}
   <div class="card-deck">
-  {% endif %}
-  {% if guild.enum == 3 %}
-  <div class="card-deck">
-  {% endif %}
-  {% if guild.enum == 6 %}
-  <div class="card-deck">
-  {% endif %}
-  {% if guild.enum == 9 %}
-  <div class="card-deck">
-  {% endif %}
-  {% if guild.enum == 12 %}
-  <div class="card-deck">
-  {% endif %}
-  {% if guild.enum == 15 %}
-  <div class="card-deck">
-  {% endif %}
     <div class="card">
       <img class="card-img-top" src="https://cdn.discordapp.com/icons/{{ guild.id }}/{{ guild.icon }}.png" alt="{{ guild.name }}">
       <div class="card-body">
@@ -40,29 +23,6 @@
     </div>
     <br>
     <br>
-  {% if guild.enum == 0 %}
   </div>
-  <br>
-  {% endif %}
-  {% if guild.enum == 3 %}
-  </div>
-  <br>
-  {% endif %}
-  {% if guild.enum == 6 %}
-  </div>
-  <br>
-  {% endif %}
-  {% if guild.enum == 9 %}
-  </div>
-  <br>
-  {% endif %}
-  {% if guild.enum == 12 %}
-  </div>
-  <br>
-  {% endif %}
-  {% if guild.enum == 15 %}
-  </div>
-  <br>
-  {% endif %}
   {% endfor %}
 {% endblock content %}
