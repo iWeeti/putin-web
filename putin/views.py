@@ -57,11 +57,10 @@ def guilds(request):
 	bot_guilds = Guilds.objects.using('bot').all()
 	bot_guilds_ids = [_.id for _ in bot_guilds]
 	guilds = []
-	for index, guild in enumerate(_guilds):
+	for guild in _guilds:
 		guild_perms = discord.Permissions(int(guild['permissions']))
-		guild['enum'] = index
 		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
-			_guilds.append(guild)
+			guilds.append(guild)
 
 	context = {
 		'ann': ann,
