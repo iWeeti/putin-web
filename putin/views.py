@@ -68,8 +68,6 @@ def guilds(request):
 	}
 	return render(request, 'putin/guilds.html', context)
 
-# https://discordapp.com/api/webhooks/495658670693154816/7XrwT81R5BXGKn2IUIafEi795fXUBs19YY_1VAylzudcIvqBKZr_5HS7sE8ywuKBZsO3
-
 @login_required
 def dashboard(request):
 	try:

@@ -119,3 +119,11 @@ def announcements(request):
 		'ann': ann[0:3]
 	}
 	return render(request, 'blog/announcements.html', context)
+
+def chat(request):
+	ann = Announcement.objects.all()[::-1]
+	context = {
+		'title': 'Chat',
+		'announcements': ann
+	}
+	return render(request, 'blog/chat.html', context)
