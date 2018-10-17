@@ -7,7 +7,7 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-        socket = new WebSocket('ws://w-bot.ml:3434');
+        socket = new WebSocket('wss://w-bot.ml:3434');
         id = +new Date + '.' + Math.random();
 
         socket.onmessage = function(message) {
