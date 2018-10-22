@@ -415,7 +415,6 @@ def meme(request):
 def rr(reqest):
 	responses = [
 		'u have been diagnose with big stupid',
-	'w.bot more like m.bot mario bot waahoo',
 	'do u know da wae of the epic trollface?',
 	'Sans Gaming TV epic',
 	'noahvn was here lol',
