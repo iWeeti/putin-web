@@ -40,6 +40,9 @@ class Comment(models.Model):
 
 	def __str__(self):
 		return f"{self.parent.title}: {self.message}"
+
+	def get_absolute_url(self):
+		return reverse('post-detail', kwargs={'pk': self.parent.pk})
 	
 
 class Announcement(models.Model):
