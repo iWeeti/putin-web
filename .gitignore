@@ -14,3 +14,4 @@ certbot-auto
 config.py
 putin_web/settings.py
 discord_bind/conf.py
+.vscode/settings.json
