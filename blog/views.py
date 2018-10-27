@@ -37,7 +37,7 @@ class PostDetailView(DetailView):
 	def get_context_data(self, **kwargs):
 		context = super(PostDetailView, self).get_context_data(**kwargs)
 		context.update({
-			'comments': Comment.objects.all().filter(pk=self.kwargs.get('post'))
+			'comments': Comment.objects.all().filter(parent=self.get_object())
 		})
 		return context
 
@@ -65,7 +65,6 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	fields = ['title', 'content']
 
 	def form_valid(self, form):
-		form.instance.author = self.request.user
 		form.instance.edited = True
 		return super().form_valid(form)
 
@@ -79,8 +78,6 @@ class CommentEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	fields = ['message']
 
 	def form_valid(self, form):
-		form.instance.author = self.request.user
-		form.instance.parent = self.kwargs.get('post')
 		form.instance.edited = True
 		return super().form_valid(form)
 

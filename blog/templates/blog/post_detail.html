@@ -24,9 +24,9 @@
           <div class="article-metadata">
               <a href="#" class="mr-2">{{ comment.author.discorduser.username }}#{{ comment.author.discorduser.discriminator }}</a>
               {% if comment.edited %}
-              <small class="text-muted">{{ object.date }} (edited)</small>
+              <small class="text-muted">{{ comment.date }} (edited)</small>
               {% else %}
-              <small class="text-muted">{{ object.date }}</small>
+              <small class="text-muted">{{ comment.date }}</small>
               {% endif %}
               {% if comment.author == user %}
               <div>
@@ -34,7 +34,6 @@
                   <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comment-delete' object.id comment.id %}">Delete</a>
               </div>
               {% endif %}
-              <h2 class="article-title">{{ comment.title }}</h2>
               <p class="article-content">{{ comment.message }}</p>
           </div>
       </article>
