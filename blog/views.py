@@ -74,7 +74,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 		return self.request.user == post.author
 
 	def get_context_data(self, **kwargs):
-		context = super(PostListView, self).get_context_data(**kwargs)
+		context = super(PostUpdateView, self).get_context_data(**kwargs)
 		context.update({
 			'comments': Comment.objects.all().filter(pk=self.request.kwargs.get('post'))
 		})
