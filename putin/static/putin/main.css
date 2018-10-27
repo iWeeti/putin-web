@@ -51,7 +51,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: lightblue;
+  color: #000000;
 }
 
 ul {
@@ -59,11 +59,11 @@ ul {
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #0a6279;
+  color: #ffffff;
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #0b5bb8;
+  color: #ffffff;
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -71,7 +71,7 @@ ul {
 }
 
 .content-section {
-  background: #505c68;
+  background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #2c3b52;
   border-radius: 3px;
@@ -79,11 +79,11 @@ ul {
 }
 
 .article-title {
-  color: #a5d2ff;
+  color: #000000;
 }
 
 a.article-title:hover {
-  color: #c6e2ff;
+  color: gray;
   text-decoration: none;
 }
 
