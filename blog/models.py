@@ -9,6 +9,7 @@ class Post(models.Model):
 	content = models.TextField()
 	date_posted = models.DateTimeField(default=timezone.now)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
+	edited = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.title
@@ -29,6 +30,16 @@ class Post(models.Model):
 
 	def db_for_read(self, model, **hints):
 		return 'default'
+
+class Comment(models.Model):
+	message = models.TextField()
+	date = models.DateTimeField(default=timezone.now)
+	author = models.ForeignKey(User, on_delete=models.CASCADE)
+	parent = models.ForeignKey(Post, on_delete=models.CASCADE)
+	edited = models.BooleanField(default=False)
+
+	def __str__(self):
+		return f"{self.parent.title}: {self.message}"
 	
 
 class Announcement(models.Model):

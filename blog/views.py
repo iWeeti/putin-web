@@ -6,14 +6,11 @@ from django.views.generic import (
 	CreateView,
 	UpdateView,
 	DeleteView)
-from .models import Post, Announcement
+from .models import Post, Announcement, Comment
 
 
 def home(request):
-	ann = Announcement.objects.all()[:3:-1]
 	context = {
-		'posts': Post.objects.all()[::-1],
-		'ann': ann,
 		'title': 'Blog'
 	}
 	return render(request, 'blog/home.html', context)
@@ -27,10 +24,9 @@ class PostListView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(PostListView, self).get_context_data(**kwargs)
-		ann = Announcement.objects.all()[::-1]
-		context.update({
-			'posts': Post.objects.order_by('-date_posted'),
-			'ann': ann[0:3],
+		context.update({,
+			'title':'Post',
+			'posts': Post.objects.order_by('-date_posted')
 		})
 		return context
 
@@ -40,12 +36,10 @@ class PostDetailView(DetailView):
 
 	def get_context_data(self, **kwargs):
 		context = super(PostDetailView, self).get_context_data(**kwargs)
-		ann = Announcement.objects.all()[::-1]
+		post = self.get_object()
 		context.update({
-			'ann': ann[0:3],
+			'title': 'Post - ' + post.title
 		})
-		return context
-
 
 class PostCreateView(LoginRequiredMixin, CreateView):
 	model = Post
@@ -55,13 +49,15 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
 
-	def get_context_data(self, **kwargs):
-		context = super(PostCreateView, self).get_context_data(**kwargs)
-		ann = Announcement.objects.all()[::-1]
-		context.update({
-			'ann': ann[0:3],
-		})
-		return context
+
+class CommentCreateView(LoginRequiredMixin, CreateView):
+	model = Comment
+	fields = ['message']
+
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		form.instance.parent = self.request.kwargs.get('post')
+		return super().form_valid(form)
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -70,6 +66,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
+		form.instance.edited = True
 		return super().form_valid(form)
 
 	def test_func(self):
@@ -77,12 +74,26 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 		return self.request.user == post.author
 
 	def get_context_data(self, **kwargs):
-		context = super(PostUpdateView, self).get_context_data(**kwargs)
-		ann = Announcement.objects.all()[::-1]
+		context = super(PostListView, self).get_context_data(**kwargs)
 		context.update({
-			'ann': ann[0:3],
+			'comments': Comment.objects.all().filter(pk=self.request.kwargs.get('post'))
 		})
 		return context
+
+
+class CommentEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+	model = Comment
+	fields = ['message']
+
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		form.instance.parent = self.request.kwargs.get('post')
+		form.instance.edited = True
+		return super().form_valid(form)
+
+	def test_func(self):
+		comment = self.get_object()
+		return self.request.user == comment.author
 
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -94,36 +105,35 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 		post = self.get_object()
 		return self.request.user == post.author
 
-	def get_context_data(self, **kwargs):
-		context = super(PostDeleteView, self).get_context_data(**kwargs)
-		ann = Announcement.objects.all()[::-1]
-		context.update({
-			'ann': ann[0:3],
-		})
-		return context
+
+class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+	model = Comment
+	fields = ['message']
+	
+	def get_success_url(self):
+		return f"/blog/{self.request.kwargs.get('post')}"
+
+	def test_func(self):
+		comment = self.get_object()
+		return self.request.user == comment.author
 
 
 def about(request):
-	ann = Announcement.objects.all()[::-1]
 	context = {
 		'title': 'About',
-		'ann': ann[0:3],
 	}
 	return render(request, 'blog/about.html', context)
 
 def announcements(request):
-	ann = Announcement.objects.all()[::-1]
 	context = {
 		'title': 'Announcements',
-		'announcements': Announcement.objects.all()[::-1],
+		'announcements': Announcement.objects.order_by('-date_posted'),
 		'ann': ann[0:3]
 	}
 	return render(request, 'blog/announcements.html', context)
 
 def chat(request):
-	ann = Announcement.objects.all()[::-1]
 	context = {
 		'title': 'Chat',
-		'announcements': ann
 	}
 	return render(request, 'blog/chat.html', context)
