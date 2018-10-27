@@ -35,7 +35,7 @@
             {% if user.is_authenticated %}
             <a class="nav-item nav-link" href="{% url 'putin-guilds' %}">Dashboard</a>
             <a class="nav-item nav-link" href="{% url 'putin-profile' %}">{{ user.discorduser.username }}#{{ user.discorduser.discriminator }}</a>
-            <a class="nav-item nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out-alt" style="font-size:18px;color:white;"></i></a>
+            <a class="nav-item nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out-alt" style="font-size:18px;"></i></a>
             {% else %}
             <a class="nav-item nav-link" href="{% url 'discord_bind_index' %}"><i class="fas fa-sign-in-alt"></i></a>
             {% endif %}
