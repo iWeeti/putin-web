@@ -38,7 +38,9 @@ class PostDetailView(DetailView):
 		context = super(PostDetailView, self).get_context_data(**kwargs)
 		post = self.get_object()
 		context.update({
-			'title': 'Post - ' + post.title
+			'object': post,
+			'title': 'Post - ' + post.title,
+			'comments': Comment.objects.all().filter(parent=post)
 		})
 
 class PostCreateView(LoginRequiredMixin, CreateView):
