@@ -36,12 +36,10 @@ class PostDetailView(DetailView):
 
 	def get_context_data(self, **kwargs):
 		context = super(PostDetailView, self).get_context_data(**kwargs)
-		post = self.get_object()
 		context.update({
-			'object': post,
-			'title': 'Post - ' + post.title,
-			'comments': Comment.objects.all().filter(parent=post)
+			'comments': Comment.objects.all().filter(pk=self.kwargs.get('post'))
 		})
+		return context
 
 class PostCreateView(LoginRequiredMixin, CreateView):
 	model = Post
@@ -58,7 +56,7 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
-		form.instance.parent = self.request.kwargs.get('post')
+		form.instance.parent = self.kwargs.get('post')
 		return super().form_valid(form)
 
 
@@ -75,13 +73,6 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 		post = self.get_object()
 		return self.request.user == post.author
 
-	def get_context_data(self, **kwargs):
-		context = super(PostUpdateView, self).get_context_data(**kwargs)
-		context.update({
-			'comments': Comment.objects.all().filter(pk=self.request.kwargs.get('post'))
-		})
-		return context
-
 
 class CommentEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	model = Comment
@@ -89,7 +80,7 @@ class CommentEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
-		form.instance.parent = self.request.kwargs.get('post')
+		form.instance.parent = self.kwargs.get('post')
 		form.instance.edited = True
 		return super().form_valid(form)
 
@@ -113,7 +104,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 	fields = ['message']
 	
 	def get_success_url(self):
-		return f"/blog/{self.request.kwargs.get('post')}"
+		return f"/blog/{self.kwargs.get('post')}"
 
 	def test_func(self):
 		comment = self.get_object()
