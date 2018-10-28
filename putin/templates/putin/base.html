@@ -33,7 +33,7 @@
           </div>
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-            {% if title == 'Blog' %}
+            {% if title and title == 'Blog' %}
             <a href="{% url 'post-create' %}"><i class="fas fa-pen-square"></i></a>
             {% endif %}
             <a class="nav-item nav-link" href="{% url 'putin-guilds' %}">Dashboard</a>
