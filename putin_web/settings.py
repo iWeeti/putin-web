@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'j1@zi(_m+m*@)o#8b!h8qxhngwinymngp_*bg+gl)uuurbnnoe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['putin', '104.248.37.111', '127.0.0.1', 'localhost', 'w-bot.ml']
 
