@@ -62,6 +62,9 @@ def guilds(request):
 		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
 			guilds.append(guild)
 
+	if not guilds:
+		messages.info("You cannot access any guild's dashboard at the moment.")
+
 	context = {
 		'ann': ann,
 		'guilds': guilds
