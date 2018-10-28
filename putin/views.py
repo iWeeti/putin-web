@@ -19,23 +19,13 @@ def index(request):
 	return render(request, 'putin/home.html', context)
 
 # @login_required
-def profile(request):
+def profile(request, uid=None):
 	ann = Announcement.objects.all()[::-1]
-	try:
-		uid = request.GET['uid']
-	except:
-		uid = None
-	if not uid is None:
+	if uid:
 		try:
 			profile = Profiles.objects.using('bot').get(id=uid)
 		except:
-			if request.user.is_authenticated:
-				try:
-					profile = Profiles.objects.using('bot').get(id=request.user.discorduser.uid)
-				except:
-					profile = None
-				else:
-					profile = None
+			messages.warning("Could not get the profile.")
 	else:
 		if request.user.is_authenticated:
 			try:
