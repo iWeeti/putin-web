@@ -11,7 +11,6 @@
     max-width: 200px;
   }
 </style>
-<!-- <div class="content-section"> -->
 <div class="card-columns">
   {% for guild in guilds %}
   <div class="card">
@@ -21,7 +20,11 @@
       <p class="card-text">
         
       </p>
+      {% if invite %}
+      <a href="{% url 'putin-invite' guild.id %}" class="btn btn-success">Invite</a>
+      {% else %}
       <a href="{% url 'putin-dashboard' %}?id={{ guild.id }}" class="btn btn-primary">Settings</a>
+      {% endif %}
     </div>
   </div>
   {% endfor %}

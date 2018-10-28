@@ -59,11 +59,13 @@ def guilds(request):
 	guilds = []
 	for guild in _guilds:
 		guild_perms = discord.Permissions(int(guild['permissions']))
-		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
+		if guild['id'] in str(bot_guilds_ids):
+			if guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
+				guild['invite'] = False
+				guilds.append(guild)
+		else:
+			guild['invite'] = True
 			guilds.append(guild)
-
-	if not guilds:
-		messages.info("You cannot access any guild's dashboard at the moment.")
 
 	context = {
 		'ann': ann,
@@ -124,5 +126,7 @@ def dashboard(request):
 		}
 		return render(request, 'putin/dashboard.html', context)
 
-def invite(request):
+def invite(request, guild_id=None):
+	if guild_id:
+		return redirect(f'https://discordapp.com/api/oauth2/authorize?client_id=488929645186514954&permissions=8&redirect_uri=https%3A%2F%2Fputin.ml%2Fdiscord%2Fcb&scope=bot&guild_id={guild_id}')
 	return redirect('https://discordapp.com/api/oauth2/authorize?client_id=488929645186514954&permissions=8&redirect_uri=https%3A%2F%2Fputin.ml%2Fdiscord%2Fcb&scope=bot')
