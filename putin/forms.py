@@ -14,7 +14,6 @@ class SettingsForm(forms.ModelForm):
 			'log_commands',
 			'advert',
 			'buy_roles',
-			'logging_channel',
 			]
 		labels = {
 			'leave': 'Leave Logging',
