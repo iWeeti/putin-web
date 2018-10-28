@@ -115,6 +115,7 @@ def about(request):
 	return render(request, 'blog/about.html', context)
 
 def announcements(request):
+	ann = Announcement.objects.order_by('-date_posted')[::-1]
 	context = {
 		'title': 'Announcements',
 		'announcements': Announcement.objects.order_by('-date_posted'),
