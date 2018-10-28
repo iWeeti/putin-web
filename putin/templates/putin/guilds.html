@@ -15,7 +15,11 @@
       {% if guild.invite %}
       <a href="{% url 'putin-invite' guild.id %}" class="btn btn-success">Invite</a>
       {% else %}
+      {% if guild.allowed %}
       <a href="{% url 'putin-dashboard' %}?id={{ guild.id }}" class="btn btn-primary">Settings</a>
+      {% else %}
+      <a href="{% url 'putin-dashboard' %}?id={{ guild.id }}" class="btn btn-primary" disabled>Settings</a>
+      {% endif %}
       {% endif %}
     </div>
   </div>

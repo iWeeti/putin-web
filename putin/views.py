@@ -60,9 +60,12 @@ def guilds(request):
 	for guild in _guilds:
 		guild_perms = discord.Permissions(int(guild['permissions']))
 		if guild['id'] in str(bot_guilds_ids):
+			guild['invite'] = False
 			if guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels:
-				guild['invite'] = False
-				guilds.append(guild)
+				guild['allowed'] = True
+			else:
+				guild['allowed'] = False
+			guilds.append(guild)
 		else:
 			guild['invite'] = True
 			guilds.append(guild)
