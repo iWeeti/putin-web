@@ -9,12 +9,12 @@ class SettingsForm(forms.ModelForm):
 			'kick',
 			'ban',
 			'unban',
-			'advert',
 			'message_delete',
 			'message_edit',
-			'buy_roles',
 			'log_commands',
-			'logging_channel'
+			'advert',
+			'buy_roles',
+			'logging_channel',
 			]
 		labels = {
 			'leave': 'Leave Logging',
@@ -25,5 +25,6 @@ class SettingsForm(forms.ModelForm):
 			'message_edit': 'Messsage Edit Logging',
 			'buy_roles': 'Buyable roles from shop.',
 			'log_commands': 'Log Command Uses',
-			'logging_channel': 'Logging Channel'
+			'logging_channel': 'Logging Channel',
+			'advert': 'Anti Advertising'
 		}
