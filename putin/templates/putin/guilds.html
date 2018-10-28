@@ -18,7 +18,7 @@
       {% if guild.allowed %}
       <a href="{% url 'putin-dashboard' %}?id={{ guild.id }}" class="btn btn-primary">Settings</a>
       {% else %}
-      <a href="{% url 'putin-dashboard' %}?id={{ guild.id }}" class="btn btn-primary" disabled>Settings</a>
+      <a href="{% url 'putin-dashboard' %}?id={{ guild.id }}" class="btn btn-primary disabled">Settings</a>
       {% endif %}
       {% endif %}
     </div>
