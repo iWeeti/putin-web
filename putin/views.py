@@ -124,6 +124,7 @@ def dashboard(request):
 		# .get(id=int(request.GET['id']))
 		form = SettingsForm(instance=_settings)
 		channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
+		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
