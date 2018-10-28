@@ -10,7 +10,7 @@
 			</fieldset>
 			<fieldset class="form-group">
 				<select name="logging_channel" id="id_logging_channel" class="form-control">
-					{% for channel in guild.channels %}
+					{% for channel in channels %}
 					<option value="{{ channel.id }}">{{ channel.name }}</option>
 					{% endfor %}
 				</select>
