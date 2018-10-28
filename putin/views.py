@@ -106,12 +106,12 @@ def dashboard(request):
 		form.save()
 		# .get(id=int(request.GET['id']))
 		# form = SettingsForm(instance=_settings)
+		guild = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}').json()
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': __guilds[request.GET.get('id')],
-			'channels': __guilds[request.GET.get('id')]['channels']
+			'guild': guild
 		}
 		return render(request, 'putin/dashboard.html', context)
 	else:
@@ -122,12 +122,12 @@ def dashboard(request):
 			_settings.id = request.GET['id']
 		# .get(id=int(request.GET['id']))
 		form = SettingsForm(instance=_settings)
+		guild = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}').json()
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': __guilds[request.GET['id']],
-			'channels': __guilds[request.GET.get('id')]['channels']
+			'guild': guild
 		}
 		return render(request, 'putin/dashboard.html', context)
 
