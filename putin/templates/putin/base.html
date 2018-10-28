@@ -36,7 +36,7 @@
             <a class="nav-item nav-link" style="color:#000000;" href="{% url 'putin-guilds' %}"><i class="fas fa-sliders-h"></i></a>
             <a class="nav-item nav-link" style="color:#000000;" href="{% url 'post-create' %}"><i class="fas fa-pen-square"></i></a>
             <a class="nav-item nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out-alt" style="font-size:18px;"></i></a>
-            <a class="nav-item nav-link" href="{% url 'putin-profile' user.discorduser.uid %}"><img style="max-width:18px;" src="https://cdn.discordapp.com/avatars/{{ user.discorduser.uid}}/{{ user.discorduser.avatar }}.png?size=128" alt="{{ user.discorduser.username }}"></a>
+            <a class="nav-item nav-link" href="{% url 'putin-profile' user.discorduser.uid %}"><img style="max-width:22px; border-radius: 50%;" src="https://cdn.discordapp.com/avatars/{{ user.discorduser.uid}}/{{ user.discorduser.avatar }}.png?size=128" alt="{{ user.discorduser.username }}"></a>
             {% else %}
             <a class="nav-item nav-link" href="{% url 'discord_bind_index' %}"><i class="fas fa-sign-in-alt"></i></a>
             {% endif %}
