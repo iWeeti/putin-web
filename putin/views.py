@@ -106,12 +106,13 @@ def dashboard(request):
 		form.save()
 		# .get(id=int(request.GET['id']))
 		# form = SettingsForm(instance=_settings)
-		guild = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}', headers={'Authorization': 'Bot ' + config.token}).json()
+		channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': guild
+			'guild': __guilds[request.GET.get('id')],
+			'channels': channels
 		}
 		return render(request, 'putin/dashboard.html', context)
 	else:
@@ -122,14 +123,12 @@ def dashboard(request):
 			_settings.id = request.GET['id']
 		# .get(id=int(request.GET['id']))
 		form = SettingsForm(instance=_settings)
-		guild = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}', headers={'Authorization': 'Bot ' + config.token}).json()
-		for obj in guild:
-			print(obj)
-		context = {
+		channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': guild
+			'guild': __guilds[request.GET['id']],
+			'channels': channels
 		}
 		return render(request, 'putin/dashboard.html', context)
 
