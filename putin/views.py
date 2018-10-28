@@ -126,7 +126,7 @@ def dashboard(request):
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': __guilds[request.GET['id']]
+			'guild': __guilds[request.GET['id']],
 			'channels': __guilds[request.GET.get('id')]['channels']
 		}
 		return render(request, 'putin/dashboard.html', context)
