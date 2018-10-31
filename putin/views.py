@@ -101,7 +101,7 @@ def dashboard(request):
 			'settings': form,
 			'guild': __guilds[request.GET.get('id')],
 			'channels': channels,
-			"selected": form.logging_channel,
+			"selected": form.instance.logging_channel,
 		}
 		return render(request, 'putin/dashboard.html', context)
 	else:
@@ -120,7 +120,7 @@ def dashboard(request):
 			'settings': form,
 			'guild': __guilds[request.GET['id']],
 			'channels': channels,
-			"selected": form.logging_channel
+			"selected": form.instance.logging_channel
 		}
 		return render(request, 'putin/dashboard.html', context)
 
