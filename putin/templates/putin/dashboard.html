@@ -13,10 +13,11 @@
 					{% if selected %}
 						{% if selected == channel.id %}
 							<option selected="selected" value="{{ channel.id }}">{{ channel.name }}</option>
-						{% endif %}
-							<option value="{{ channel.id }}">{{ channel.name }}</option>
 						{% else %}
 							<option value="{{ channel.id }}">{{ channel.name }}</option>
+						{% endif %}
+					{% else %}
+						<option value="{{ channel.id }}">{{ channel.name }}</option>
 					{% endif %}
 					{% endfor %}
 				</select>
