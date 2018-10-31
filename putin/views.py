@@ -94,12 +94,14 @@ def dashboard(request):
 		# .get(id=int(request.GET['id']))
 		# form = SettingsForm(instance=_settings)
 		channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
+		channels = [x for x in channels if x.type == "0"]		
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
 			'guild': __guilds[request.GET.get('id')],
-			'channels': channels
+			'channels': channels,
+			"selected": form.logging_channel,
 		}
 		return render(request, 'putin/dashboard.html', context)
 	else:
@@ -111,13 +113,14 @@ def dashboard(request):
 		# .get(id=int(request.GET['id']))
 		form = SettingsForm(instance=_settings)
 		channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
-		print(channels)
+		channels = [x for x in channels if x.type == "0"]
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
 			'guild': __guilds[request.GET['id']],
-			'channels': channels
+			'channels': channels,
+			"selected": form.logging_channel
 		}
 		return render(request, 'putin/dashboard.html', context)
 
