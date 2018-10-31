@@ -7,8 +7,7 @@
 			<fieldset class="form-group">
 				<legend class="border-bottom-mb-4">Settings of {{ guild.name }}</legend>
 				{{ settings|crispy }}
-			</fieldset>
-			<fieldset class="form-group">
+				<p>Logging Channel</p>
 				<select name="logging_channel" id="id_logging_channel" class="form-control">
 					{% for channel in channels %}
 					<option value="{{ channel.id }}">{{ channel.name }}</option>
