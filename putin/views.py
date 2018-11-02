@@ -122,7 +122,7 @@ def dashboard(request):
 		for channel in _channels:
 			if channel['type'] == 0:
 				channels[channel['id']] = channel
-		selected = channels[str(form.instance.logging_channel)]
+		selected = channels.pop(str(form.instance.logging_channel))
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],

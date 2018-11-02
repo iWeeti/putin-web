@@ -9,7 +9,7 @@
 				{{ settings|crispy }}
 				<p>Logging Channel</p>
 				<select name="logging_channel" id="id_logging_channel" class="form-control">
-					<option value="{{ channel.id }}" selected="selected">{{ channel.name }}</option>
+					<option value="{{ selected.id }}" selected="selected">{{ selected.name }}</option>
 					{% for channel in channels %}
 							<option value="{{ channel.id }}">{{ channel.name }}</option>
 					{% endfor %}
