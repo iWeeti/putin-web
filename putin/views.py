@@ -93,15 +93,20 @@ def dashboard(request):
 		form.save()
 		# .get(id=int(request.GET['id']))
 		# form = SettingsForm(instance=_settings)
-		channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
-		channels = [x for x in channels if x['type'] == "0"]		
+		_channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
+		channels = {}
+		for channel in _channels:
+			if channel['type'] == 0:
+				channels[channel['id']] = channel
+		selected = channels[str(form.instance.logging_channel)]
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
-			'guild': __guilds[request.GET.get('id')],
+			'guild': __guilds[request.GET['id']],
 			'channels': channels,
-			"selected": form.instance.logging_channel,
+			"selected": selected
+
 		}
 		return render(request, 'putin/dashboard.html', context)
 	else:
@@ -112,15 +117,19 @@ def dashboard(request):
 			_settings.id = request.GET['id']
 		# .get(id=int(request.GET['id']))
 		form = SettingsForm(instance=_settings)
-		channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
-		channels = [x for x in channels if x['type'] == 0]
+		_channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
+		channels = {}
+		for channel in _channels:
+			if channel['type'] == 0:
+				channels[channel['id']] = channel
+		selected = channels[str(form.instance.logging_channel)]
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
 			'settings': form,
 			'guild': __guilds[request.GET['id']],
 			'channels': channels,
-			"selected": form.instance.logging_channel
+			"selected": selected
 		}
 		return render(request, 'putin/dashboard.html', context)
 
