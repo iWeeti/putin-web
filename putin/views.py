@@ -113,7 +113,7 @@ def dashboard(request):
 		# .get(id=int(request.GET['id']))
 		form = SettingsForm(instance=_settings)
 		channels = requests.get(f'https://discordapp.com/api/guilds/{request.GET.get("id")}/channels', headers={'Authorization': 'Bot ' + config.token}).json()
-		channels = [x for x in channels if x['type'] == "0"]
+		channels = [x for x in channels if x['type'] == 0]
 		context = {
 			'ann': ann,
 			'guild_id': request.GET['id'],
