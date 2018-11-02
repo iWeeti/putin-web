@@ -79,7 +79,7 @@ def dashboard(request):
 	__guilds = {}
 	for guild in guilds:
 		guild_perms = discord.Permissions(int(guild['permissions']))
-		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels or self.request.user.discorduser.uid == "464910064965386283":
+		if guild['id'] in str(bot_guilds_ids) and guild_perms.manage_guild or guild_perms.administrator or guild_perms.manage_channels or request.user.discorduser.uid == "464910064965386283":
 			_guilds.append(guild['id'])
 			__guilds[guild['id']] = guild
 	if not request.GET['id'] in _guilds:
